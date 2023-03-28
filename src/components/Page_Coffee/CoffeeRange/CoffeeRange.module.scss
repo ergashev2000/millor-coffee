@@ -1,0 +1,136 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.coffeeRange {
+  margin-top: f.rem(52);
+  border-top: 1px solid #B3B3B3;
+  border-bottom: 1px solid #B3B3B3;
+  padding-block: f.rem(40) f.rem(80);
+
+  @include m.tablet {
+    margin-top: f.rem(50);
+  }
+
+  @include m.phone {
+    margin-top: f.rem(30);
+    padding-block: f.rem(30);
+  }
+}
+
+.title {
+  font-weight: 900;
+  font-size: f.rem(28);
+  line-height: f.ratio(28, 34.94);
+  margin-bottom: f.rem(40);
+
+  @include m.tablet {
+    font-size: f.rem(40);
+    line-height: f.ratio(40, 49.92);
+    margin-bottom: f.rem(35);
+  }
+
+  @include m.phone {
+    font-size: f.rem(18);
+    line-height: f.ratio(18, 22.46);
+    margin-bottom: f.rem(20);
+  }
+}
+
+.items {
+  display: flex;
+  gap: f.rem(15);
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @include m.tablet {
+
+    gap: f.rem(20);
+  }
+}
+
+.item {
+  width: f.rem(134);
+  height: f.rem(134);
+  background: v.$white;
+  box-shadow: 0px 0px 21.2553px rgba(149, 149, 149, 0.25);
+  border-radius: f.rem(14);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  position: relative;
+
+  @include m.tablet {
+    width: f.rem(220);
+    height: f.rem(220);
+    box-shadow: 0px 0px 61.44px rgba(149, 149, 149, 0.25);
+    border-radius: f.rem(20);
+
+    svg * {
+      fill: #505050;
+    }
+  }
+
+  @include m.phone {
+    width: f.rem(106);
+    height: f.rem(110);
+    column-gap: f.rem(12);
+    row-gap: f.rem(10);
+    box-shadow: 0px 0px 30px rgba(149, 149, 149, 0.25);
+    border-radius: f.rem(10);
+  }
+
+  &:hover {
+    background: v.$yellow;
+    color: v.$white;
+
+    svg * {
+      fill: rgb(255, 255, 255);
+    }
+  }
+}
+
+.active {
+  background: v.$yellow;
+  color: v.$white;
+
+  svg * {
+    fill: v.$white;
+  }
+}
+
+.iconsText {
+  font-size: f.rem(14);
+  line-height: f.ratio(14, 16.48);
+
+  @include m.tablet {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 23.54);
+  }
+
+  @include m.phone {
+    font-size: f.rem(12);
+    line-height: f.ratio(12, 14.12);
+  }
+
+  &:hover {
+    color: v.$white;
+  }
+}
+
+.iconsImg {
+  @include m.tablet {
+    width: 70%;
+    height: 60%;
+    display: grid;
+    place-items: center;
+
+    svg {
+      width: 80%;
+    }
+  }
+}

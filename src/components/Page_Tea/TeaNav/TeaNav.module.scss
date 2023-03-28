@@ -1,0 +1,113 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.teaNav {
+  margin-top: f.rem(40);
+
+  @include m.tablet {
+    margin-top: f.rem(50);
+  }
+
+  @include m.phone {
+    margin-top: f.rem(20);
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: f.rem(20);
+  padding-block: f.rem(20);
+
+  @include m.tablet {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: f.rem(20);
+    row-gap: f.rem(20);
+    grid-template-areas: 'description description' 'additionally prepare';
+  }
+
+  @include m.phone {
+    row-gap: f.rem(10);
+  }
+}
+
+.reviews {
+  @include m.tablet {
+    display: none;
+    position: absolute;
+  }
+}
+
+.description {
+  @include m.tablet {
+    grid-area: description;
+  }
+}
+
+.prepare {
+  @include m.tablet {
+    grid-area: prepare;
+  }
+}
+
+.additionally {
+  @include m.tablet {
+    grid-area: additionally;
+  }
+}
+
+.description,
+.prepare,
+.additionally,
+.reviews {
+  height: f.rem(42);
+  background: v.$grey;
+  border: 0.708508px solid #C9C9C9;
+  border-radius: 3.54254px;
+
+  @include m.tablet {
+    height: f.rem(70);
+    background: #F0F0F0;
+    border: 1px solid #C9C9C9;
+    border-radius: f.rem(5);
+  }
+
+  @include m.phone {
+    height: f.rem(40);
+  }
+
+  a {
+    height: 100%;
+    display: grid;
+    place-content: center;
+    text-decoration: none;
+    color: v.$yellow;
+    font-weight: 600;
+    font-size: f.rem(18);
+    line-height: f.ratio(18, 21.47);
+
+    @include m.tablet {
+      font-size: f.rem(25);
+      line-height: f.ratio(25, 29.82);
+    }
+
+    @include m.phone {
+      font-size: f.rem(12);
+      line-height: f.ratio(12, 14.32);
+    }
+  }
+
+  &:hover {
+    background: #FFF7E1;
+    border: 0.708508px solid v.$yellow;
+    border-radius: f.rem(4);
+
+    @include m.tablet {
+      background: #FFF7E1;
+      border: 1px solid v.$yellow;
+      border-radius: f.rem(5);
+    }
+  }
+}

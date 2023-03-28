@@ -1,0 +1,96 @@
+@use '../../style/variables.scss' as v;
+@use '../../style/mixins.scss' as m;
+@use '../../style/functions.scss' as f;
+
+.footer {
+  min-height: f.rem(153);
+  padding-top: f.rem(30);
+  background-color: v.$white;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include m.tablet {
+    flex-direction: column-reverse;
+    row-gap: f.rem(50);
+  }
+
+  @include m.phone {
+    row-gap: f.rem(30);
+  }
+}
+
+.logo {
+  width: f.rem(180);
+  height: f.rem(80);
+
+  @include m.tablet {
+    margin-bottom: f.rem(50);
+    width: f.rem(225);
+    height: f.rem(102);
+  }
+
+  @include m.phone {
+    width: f.rem(110);
+    height: f.rem(50);
+    margin-bottom: f.rem(30);
+  }
+}
+
+.navList {
+  display: flex;
+  gap: f.rem(100);
+
+  @include m.tablet {
+    gap: f.rem(60);
+  }
+
+  @media screen and (max-width:512px) {
+    gap: f.rem(40);
+  }
+
+  @include m.phone {
+    row-gap: f.rem(30);
+  }
+
+  a {
+    position: relative;
+    text-decoration: none;
+    color: v.$black;
+    font-weight: 500;
+    font-size: f.rem(18);
+    line-height: f.pr(18, 29);
+    display: inline-block;
+    padding-bottom: f.rem(5);
+
+    @include m.tablet {
+      color: #181818;
+      font-size: f.rem(25);
+      line-height: f.ratio(25, 29.43);
+      font-weight: 500;
+    }
+
+    @include m.phone {
+      font-size: f.rem(12);
+      line-height: f.ratio(12, 14.12);
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      height: 2px;
+      background-color: v.$yellow;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      transition: all 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

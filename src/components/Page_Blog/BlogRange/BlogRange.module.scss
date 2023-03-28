@@ -1,0 +1,128 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.blogRange {
+  padding-block: f.rem(30);
+
+  @include m.tablet {
+    padding-block: f.rem(24) f.rem(30);
+  }
+
+  @include m.phone {
+    padding-block: f.rem(0) f.rem(30);
+  }
+}
+
+.title {
+  font-weight: 900;
+  font-size: f.rem(28);
+  line-height: f.ratio(28, 34.94);
+
+  @include m.tablet {
+    max-width: f.rem(376);
+    font-size: f.rem(36);
+    line-height: f.ratio(36, 44.93);
+  }
+
+  @include m.phone {
+    max-width: f.rem(186);
+    font-size: f.rem(18);
+    line-height: f.ratio(18, 22.46);
+  }
+}
+
+.items {
+  margin-top: f.rem(15);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: f.rem(15);
+
+  @include m.tablet {
+    margin-top: f.rem(40);
+  }
+
+  @include m.phone {
+    margin-top: f.rem(20);
+  }
+
+  a {
+    text-decoration: none;
+
+    &:active {
+      // transform: scale(1.1);
+      background: v.$yellow;
+      color: v.$white;
+    }
+  }
+}
+
+.item {
+  width: f.rem(134);
+  height: f.rem(134);
+  background: v.$white;
+  box-shadow: 0px 0px 21.2553px rgba(149, 149, 149, 0.25);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+
+  .iconsText {
+    @include m.tablet {
+      font-size: f.rem(24);
+      line-height: f.ratio(24, 28.25);
+    }
+
+    @include m.phone {
+      font-size: f.rem(12);
+      line-height: f.ratio(12, 14.12);
+    }
+
+    &:hover {
+      color: v.$white;
+    }
+  }
+
+  .iconsImg {
+    @include m.tablet {
+      width: 70%;
+      height: 60%;
+      display: grid;
+      place-items: center;
+
+      svg {
+        width: 80%;
+      }
+    }
+  }
+
+  @include m.tablet {
+    width: f.rem(220);
+    height: f.rem(220);
+  }
+
+  @media screen and (max-width:600px) {
+    width: f.rem(150);
+    height: f.rem(150);
+  }
+
+  @include m.phone {
+    width: f.rem(106);
+    height: f.rem(110);
+  }
+
+
+  &:hover {
+    background: v.$yellow;
+    color: v.$white;
+
+    svg * {
+      fill: v.$white;
+    }
+  }
+}

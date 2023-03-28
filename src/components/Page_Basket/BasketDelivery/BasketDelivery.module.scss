@@ -1,0 +1,175 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.basketDelivery {
+  margin-top: f.rem(20);
+
+  @include m.tablet {
+    margin-top: f.rem(30);
+  }
+
+  @include m.phone {
+    margin-top: f.rem(20);
+  }
+}
+
+.container {
+  min-height: f.rem(543);
+  background: v.$white;
+  border: 0.708508px solid #E4E4E4;
+  box-shadow: 0px 0px 35.4254px rgba(163, 163, 163, 0.25);
+  border-radius: f.rem(14);
+  padding: f.rem(47) f.rem(100);
+
+  @include m.tablet {
+    margin-inline: f.rem(-15);
+    padding: f.rem(34) f.rem(40) f.rem(94);
+    border: 1px solid #E4E4E4;
+    box-shadow: 0px 0px 20.1681px rgba(163, 163, 163, 0.25);
+    border-radius: f.rem(10);
+  }
+
+  @include m.phone {
+    padding: f.rem(40) f.rem(17) f.rem(50);
+    box-shadow: 0px 0px 50px rgba(163, 163, 163, 0.25);
+  }
+}
+
+.wrapperTitle {
+  margin-bottom: f.rem(35);
+
+  @include m.tablet {
+    margin-bottom: f.rem(30);
+  }
+
+  @include m.phone {
+    margin-bottom: f.rem(20);
+  }
+}
+
+.title {
+  font-weight: 900;
+  font-size: f.rem(22);
+  color: v.$darkGrey;
+  line-height: f.ratio(22, 27.46);
+
+  @include m.tablet {
+    font-size: f.rem(25);
+    line-height: f.ratio(25, 31.2);
+  }
+
+  @include m.phone {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 24.96);
+  }
+}
+
+.wrapperAbout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: f.rem(20);
+
+  @include m.tablet {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: f.rem(30);
+  }
+}
+
+.clientTablet,
+.adressTablet {
+  font-size: f.rem(20);
+  line-height: f.ratio(20, 23.54);
+  margin-bottom: f.rem(20);
+
+  @include m.phone {
+    font-size: f.rem(12);
+    line-height: f.ratio(12, 14.12);
+    margin-bottom: f.rem(10);
+  }
+
+  @media screen and (min-width:769px) {
+    display: none;
+    position: absolute;
+  }
+}
+
+.clientList,
+.addressList {
+  display: flex;
+  flex-direction: column;
+  gap: f.rem(15);
+
+  @include m.tablet {
+    gap: f.rem(10);
+  }
+}
+
+.clientItem,
+.addressItem {
+  input {
+    width: 100%;
+    height: f.rem(49);
+    background: #FCFCFC;
+    border: 1px solid #F6F6F6;
+    border-radius: f.rem(4);
+    padding-inline: f.rem(40);
+    color: v.$darkGrey;
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 16.48);
+
+    @include m.tablet {
+      height: f.rem(70);
+      background: #F3F3F3;
+      border-radius: f.rem(5);
+      font-size: f.rem(20);
+      line-height: f.ratio(20, 26);
+      color: #C9C9C9;
+      padding-inline: f.rem(50);
+    }
+
+    @include m.phone {
+      height: f.rem(50);
+      font-size: f.rem(14);
+      line-height: f.ratio(14, 18.2);
+      padding-inline: f.rem(30);
+    }
+  }
+}
+
+.btn {
+  width: 100%;
+  height: f.rem(49);
+  background-color: #FFF7E1;
+  border: 0.708508px solid v.$yellow;
+  border-radius: f.rem(4);
+  margin-top: f.rem(30);
+  color: v.$yellow;
+  font-weight: 600;
+  font-size: f.rem(18);
+  line-height: f.ratio(18, 21.47);
+  transition-property: background-color border;
+  transition-duration: 0.5s;
+  cursor: pointer;
+
+  @include m.tablet {
+    height: f.rem(70);
+    background: #FFF7E1;
+    border: 1px solid v.$yellow;
+    border-radius: f.rem(5);
+    font-size: f.rem(25);
+    line-height: f.ratio(25, 30.22);
+  }
+
+  @include m.phone {
+    height: f.rem(50);
+    font-size: f.rem(18);
+    line-height: f.ratio(18, 21.76);
+  }
+
+  &:hover {
+    background-color: #ffe9ac;
+    border: 0.708508px solid v.$darkYellow;
+  }
+}

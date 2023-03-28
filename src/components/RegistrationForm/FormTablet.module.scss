@@ -1,0 +1,199 @@
+@use '../../style/variables' as v;
+@use '../../style/mixins.scss' as m;
+@use '../../style/functions.scss' as f;
+
+.formTablet {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  background-color: v.$white;
+  overflow: auto;
+  padding-bottom: f.rem(100);
+
+  @media screen and (min-width:769px) {
+    display: none;
+    position: absolute;
+  }
+
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: initial;
+  }
+
+  .wrapperLogo {
+    display: grid;
+    place-content: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 15;
+    margin-bottom: f.rem(140);
+    overflow: clip;
+    background-color: v.$white;
+
+    @include m.phone {
+      margin-bottom: f.rem(60);
+    }
+  }
+
+  .logo {
+    width: f.rem(220);
+    height: f.rem(103);
+    background: url('../../images/logo.png')center/ contain no-repeat;
+
+    @include m.phone {
+      width: f.rem(132);
+      height: f.rem(62);
+    }
+  }
+
+  .mobileBtnClose {
+    width: f.rem(40);
+    height: f.rem(40);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: f.rem(30);
+    cursor: pointer;
+
+    @include m.phone {
+      width: f.rem(20);
+      height: f.rem(20);
+    }
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: f.rem(3);
+      background-color: v.$black;
+      transform: rotate(45deg);
+      position: absolute;
+      top: calc(50% - 1.5px);
+    }
+
+    &::before {
+      content: '';
+      width: 100%;
+      height: f.rem(3);
+      background-color: v.$black;
+      transform: rotate(-45deg);
+      position: absolute;
+      top: calc(50% - 1.5px);
+    }
+  }
+
+  .contant {
+
+    .title {
+      font-size: f.rem(35);
+      line-height: f.ratio(35, 43.68);
+      margin-bottom: f.rem(40);
+      text-align: center;
+
+      @include m.phone {
+        font-size: f.rem(20);
+        line-height: f.ratio(20, 24.96);
+        margin-bottom: f.rem(20);
+      }
+    }
+
+    .text {
+      max-width: f.rem(415);
+      font-size: f.rem(16);
+      line-height: f.ratio(16, 18.83);
+      text-align: center;
+      margin: 0px auto f.rem(50);
+
+      @include m.phone {
+        font-size: f.rem(14);
+        line-height: f.ratio(14, 16.48);
+        margin: 0px auto f.rem(30);
+      }
+    }
+
+
+    .registrationList {
+      display: flex;
+      flex-direction: column;
+      gap: f.rem(10);
+    }
+
+    .registrationItem {
+      input {
+        width: 100%;
+        height: f.rem(70);
+        background: #F3F3F3;
+        border-radius: f.rem(5);
+        padding-inline: f.rem(40) f.rem(10);
+        font-size: f.rem(16);
+        line-height: f.ratio(16, 20.8);
+        color: #C9C9C9;
+
+        @include m.phone {
+          height: f.rem(50);
+          padding-inline: f.rem(30) f.rem(10);
+          font-size: f.rem(14);
+          line-height: f.ratio(14, 18.2);
+        }
+      }
+    }
+
+    .password {
+      background: url('../../images/RegistratiomForm/icon.svg')95% 50% no-repeat, #F6F6F6 !important;
+      margin-bottom: f.rem(20);
+    }
+
+    .btn {
+      width: 100%;
+      height: f.rem(70);
+      background: v.$yellow;
+      border-radius: f.rem(5);
+      font-weight: 700;
+      font-size: f.rem(20);
+      line-height: f.ratio(20, 24.18);
+      color: v.$white;
+      margin-bottom: f.rem(40);
+      transition: background-color 0.5s;
+
+      @include m.phone {
+        height: f.rem(50);
+        font-size: f.rem(18);
+        line-height: f.ratio(18, 21.76);
+        margin-bottom: f.rem(30);
+      }
+
+      &:hover {
+        background: v.$darkYellow;
+      }
+    }
+  }
+
+  .registration {
+    display: flex;
+    justify-content: center;
+    font-size: f.rem(16);
+    line-height: f.ratio(16, 18.83);
+
+    @include m.phone {
+      font-size: f.rem(14);
+      line-height: f.ratio(14, 16.48);
+    }
+
+    a {
+      font-size: f.rem(16);
+      line-height: f.ratio(16, 18.83);
+      margin-left: f.rem(10);
+
+      @include m.phone {
+        font-size: f.rem(14);
+        line-height: f.ratio(14, 16.48);
+      }
+    }
+  }
+}

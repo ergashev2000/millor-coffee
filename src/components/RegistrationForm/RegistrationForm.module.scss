@@ -1,0 +1,155 @@
+@use '../../style/variables.scss' as v;
+@use '../../style/mixins.scss' as m;
+@use '../../style/functions.scss' as f;
+
+.registrationForm {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 10;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  @include m.tablet {
+    display: none;
+    position: absolute;
+  }
+}
+
+.container {
+  width: f.vw(977);
+  max-width: f.rem(977);
+  position: relative;
+  background-color: v.$white;
+  margin: f.rem(80) auto;
+  border-radius: f.rem(21);
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+  overflow: hidden;
+
+  span {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: f.rem(30);
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.greetings {
+  background: v.$yellow;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.greetingsImg {
+  position: relative;
+
+  img {
+    max-width: f.rem(350);
+    width: f.vw(350);
+    max-height: f.rem(240);
+    height: f.vw(240);
+    position: absolute;
+    top: 0px;
+    left: 10px;
+  }
+}
+
+.greetingsTextWrapper {
+  padding: f.rem(39) f.rem(28);
+  color: v.$white;
+  text-align: center;
+}
+
+.greetingsTitle {
+  font-weight: 900;
+  font-size: f.rem(24);
+  line-height: f.pr(24, 29.95);
+  margin-bottom: f.rem(20);
+}
+
+.greetingsText {
+  font-size: f.rem(18);
+  line-height: f.pr(18, 21.19);
+  cursor: pointer;
+}
+
+.registration {
+  padding-inline: f.rem(117) f.rem(97);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: f.rem(14);
+}
+
+.registrationTitle {
+  font-weight: 900;
+  font-size: f.rem(28);
+  line-height: f.pr(28, 34.94);
+  text-align: center;
+  margin-bottom: f.rem(14);
+}
+
+.registrationText {
+  max-width: f.rem(420);
+  font-size: f.rem(14);
+  line-height: f.pr(14, 16.48);
+  margin: 0px auto;
+  text-align: center;
+  margin-bottom: f.rem(21);
+}
+
+.registrationList {
+  max-width: f.rem(480);
+  display: flex;
+  flex-direction: column;
+  gap: f.rem(15);
+  // justify-content: center;
+}
+
+.registrationItem {
+
+
+  input {
+    width: 100%;
+    height: f.rem(49);
+    background: #F6F6F6;
+    border-radius: 4px;
+    padding-inline: f.rem(30);
+    font-size: f.rem(14);
+    line-height: f.pr(14, 16.48);
+    outline: none;
+  }
+}
+
+.password {
+  background: url('../../images/RegistratiomForm/icon.svg')95% 50% no-repeat, #F6F6F6 !important;
+}
+
+.registrationBtn {
+  width: 100%;
+  height: f.rem(49);
+  color: v.$white;
+  background: v.$yellow;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-block: f.rem(23) f.rem(40);
+  font-weight: 700;
+  font-size: f.rem(18);
+  line-height: f.pr(18, 21.76);
+  transition: background-color 0.5s;
+
+
+  &:hover {
+    background: v.$darkYellow;
+  }
+}

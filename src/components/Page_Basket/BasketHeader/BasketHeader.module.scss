@@ -1,0 +1,93 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.basketHeader {
+  padding-block: f.rem(30) f.rem(35);
+
+  @include m.tablet {
+    padding-block: f.rem(30) f.rem(19);
+  }
+
+  @include m.phone {
+    padding-block: f.rem(30);
+  }
+}
+
+.navigationLinks {
+  display: flex;
+  gap: f.rem(11);
+  flex-direction: row;
+
+  @include m.tablet {
+    gap: f.rem(20);
+  }
+
+  @include m.phone {
+    gap: f.rem(12);
+  }
+}
+
+.navigationLink {
+  color: v.$darkGrey;
+  font-size: f.rem(12);
+  line-height: f.ratio(12, 14.12);
+  position: relative;
+
+  @include m.tablet {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 23.54);
+    color: v.$black;
+  }
+
+  @include m.phone {
+    font-size: f.rem(10);
+    line-height: f.ratio(10, 11.77);
+    color: v.$black;
+  }
+
+  a {
+    text-decoration: none;
+    color: v.$darkGrey;
+    font-size: f.rem(12);
+    line-height: f.ratio(12, 14.12);
+
+    @include m.tablet {
+      font-size: f.rem(20);
+      line-height: f.ratio(20, 23.54);
+      color: v.$black;
+    }
+
+    @include m.phone {
+      font-size: f.rem(10);
+      line-height: f.ratio(10, 11.77);
+      color: v.$black;
+    }
+  }
+
+  &:not(:first-child)::before {
+    width: f.rem(3);
+    height: f.rem(3);
+    position: absolute;
+    display: block;
+    content: '';
+    border-radius: 50%;
+    background-color: v.$darkGrey;
+    top: 50%;
+    transform: translateY(-50%);
+    left: f.rem(-7);
+
+    @include m.tablet {
+      width: f.rem(4);
+      height: f.rem(4);
+      color: v.$black;
+      left: f.rem(-12);
+    }
+
+    @include m.phone {
+      width: f.rem(2);
+      height: f.rem(2);
+      left: f.rem(-7);
+    }
+  }
+}

@@ -1,0 +1,266 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.coffeeCharacteristics {
+  margin-top: f.rem(56);
+  padding-bottom: f.rem(20);
+
+  @include m.tablet {
+    margin-top: f.rem(102);
+  }
+
+  @include m.phone {
+    margin-top: f.rem(10);
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(auto, 280px) minmax(auto, 880px);
+  column-gap: f.rem(20);
+
+  @include m.netbook {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(231px, auto) minmax(231px, auto);
+    row-gap: f.rem(20);
+  }
+
+  @include m.tablet {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(231px, auto) minmax(541px, auto);
+    row-gap: f.rem(20);
+  }
+
+  @include m.phone {
+    grid-template-rows: minmax(113px, auto) minmax(269px, auto);
+    row-gap: f.rem(9);
+  }
+}
+
+.taste {
+  background: v.$white;
+  box-shadow: 0px 0px 21.2552px rgba(149, 149, 149, 0.25);
+  border-radius: f.rem(14);
+  padding: f.rem(40) f.rem(0) f.rem(46) f.rem(55);
+
+  @include m.tablet {
+    padding: f.rem(40) f.rem(35) f.rem(50);
+    box-shadow: 0px 0px 61.44px rgba(149, 149, 149, 0.25);
+    border-radius: f.rem(10);
+  }
+
+  @include m.phone {
+    padding: f.rem(19) f.rem(14) f.rem(21);
+    box-shadow: 0px 0px 30px rgba(149, 149, 149, 0.25);
+  }
+}
+
+.tasteTitle,
+.characteristicsTitle {
+  font-weight: 700;
+  font-size: f.rem(22);
+  line-height: f.ratio(22, 28.6);
+  color: v.$darkGrey;
+  margin-bottom: f.rem(30);
+
+  @include m.tablet {
+    font-size: f.rem(30);
+    line-height: f.ratio(30, 39);
+    margin-bottom: f.rem(40);
+  }
+
+  @include m.phone {
+    font-size: f.rem(18);
+    line-height: f.ratio(18, 23.4);
+    margin-bottom: f.rem(20);
+  }
+}
+
+.tasteList {
+  display: flex;
+  flex-direction: column;
+  gap: f.rem(20);
+
+  @include m.tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+.tasteItem {
+  display: flex;
+  gap: f.rem(30);
+  align-items: center;
+
+  @include m.tablet {
+    gap: f.rem(20);
+  }
+
+  @include m.phone {
+    gap: f.rem(10);
+  }
+}
+
+.tasteImg {
+  width: f.rem(50);
+  height: f.rem(50);
+  border-radius: 50%;
+  background: url('../../../images/Coffee/tasteIcon.svg')center/cover no-repeat;
+
+  @include m.tablet {
+    width: f.rem(61);
+    height: f.rem(61);
+  }
+
+  @include m.phone {
+    width: f.rem(30);
+    height: f.rem(30);
+  }
+}
+
+.tasteText,
+.itemTitle,
+.characteristicsText {
+  font-size: f.rem(18);
+  line-height: f.ratio(18, 23.4);
+  color: v.$darkGrey;
+
+  @include m.tablet {
+    font-size: f.rem(24);
+    line-height: f.ratio(24, 31.2);
+  }
+
+  @include m.phone {
+    font-size: f.rem(12);
+    line-height: f.ratio(12, 15.6);
+  }
+}
+
+.characteristics {
+  background: v.$white;
+  box-shadow: 0px 0px 21.2552px rgba(149, 149, 149, 0.25);
+  border-radius: f.rem(14);
+  padding: f.rem(43) f.rem(100) f.rem(41) f.rem(56);
+
+  @include m.tablet {
+    padding: f.rem(50) f.rem(33) f.rem(70);
+  }
+
+  @include m.phone {
+    padding: f.rem(30) f.rem(15);
+  }
+}
+
+.characteristicsTitle {
+  @include m.tablet {
+    margin-bottom: f.rem(50);
+  }
+}
+
+.characteristicsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.characteristicsItem {
+  height: f.rem(46);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #B2B2B2;
+
+  @include m.tablet {
+    height: auto;
+    min-height: f.rem(75);
+    gap: f.rem(10);
+  }
+
+  @include m.phone {
+    min-height: f.rem(36);
+  }
+}
+
+.itemTitle {
+  font-weight: 700;
+}
+
+.characteristicsText {
+  max-width: f.rem(308);
+  text-align: right;
+
+  @include m.tablet {
+    max-width: f.rem(279);
+  }
+
+  @include m.phone {
+    max-width: f.rem(141);
+  }
+}
+
+.wrapperAbout {
+  margin-top: f.rem(65);
+  display: grid;
+  grid-template-columns: minmax(auto, 779px) 280px;
+  column-gap: f.vw(121, 1349);
+
+  @include m.tablet {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(442px, auto) minmax(348px, auto);
+    row-gap: f.rem(80);
+    margin-top: f.rem(40);
+  }
+
+  @include m.phone {
+    grid-template-rows: auto minmax(170px, auto);
+    row-gap: f.rem(40);
+    margin-top: f.rem(30);
+  }
+}
+
+.textList {
+  display: flex;
+  flex-direction: column;
+  gap: f.rem(30);
+
+  @include m.tablet {
+    gap: f.rem(40);
+  }
+
+  @include m.phone {
+    gap: f.rem(25);
+  }
+}
+
+.itemText {
+  font-size: f.rem(17);
+  line-height: f.ratio(17, 23.03);
+  color: v.$darkGrey;
+
+  @include m.tablet {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 26);
+  }
+
+  @include m.phone {
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 18.2);
+  }
+}
+
+.aboutImage {
+  border-radius: f.rem(14);
+  background: url('../../../images/Coffee/icon_search.svg')left 12% bottom 13%/30px 30px no-repeat,
+    url('../../../images/Coffee/bg_tablet.png')center/cover no-repeat;
+
+  @include m.tablet {
+    background: url('../../../images/Coffee/icon_search.svg')right 10% bottom 18%/34px 34px no-repeat,
+      url('../../../images/Coffee/bg_tablet.png')center/cover no-repeat;
+  }
+
+  @include m.phone {
+    background: url('../../../images/Coffee/icon_search.svg')right 10% bottom 18%/24px 24px no-repeat,
+      url('../../../images/Coffee/bg_tablet.png')center/cover no-repeat;
+  }
+}

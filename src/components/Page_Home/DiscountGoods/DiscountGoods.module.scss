@@ -1,0 +1,133 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+
+.discountGoods {
+  min-height: f.rem(756);
+}
+
+.container {
+  overflow: hidden;
+}
+
+.wrapper_img {
+  height: f.rem(357);
+  position: absolute;
+  top: f.rem(-70);
+  left: f.rem(-74);
+  display: flex;
+  justify-content: right;
+
+  @include m.tablet {
+    height: f.rem(257);
+    top: f.rem(-0);
+  }
+
+  @include m.phone {
+    height: f.rem(237);
+    left: f.rem(-54);
+    top: f.rem(-10);
+  }
+}
+
+
+.title {
+  margin-top: f.rem(30);
+  margin-bottom: f.rem(39);
+  font-weight: 900;
+  font-size: f.rem(35);
+  line-height: f.ratio(35, 43.68);
+  text-align: end;
+
+  @include m.tablet {
+    font-size: f.rem(40);
+    line-height: f.ratio(40, 49.92);
+    margin-bottom: f.rem(50);
+  }
+
+  @include m.phone {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 24.96);
+    margin-bottom: f.rem(30);
+  }
+}
+
+.wrapperText,
+.wrapperItems,
+.wrapperLink {
+  display: flex;
+  justify-content: right;
+}
+
+
+
+.text {
+  width: f.rem(724);
+  text-align: right;
+  line-height: f.pr(18, 23.4);
+
+  @include m.tablet {
+    max-width: f.rem(474);
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 26);
+    margin-left: f.rem(55);
+  }
+
+  @include m.phone {
+    max-width: f.rem(290);
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 18.2);
+  }
+}
+
+.wrapperItems {
+  margin-top: f.rem(54);
+  margin-bottom: f.rem(40);
+
+  @include m.tablet {
+    margin-top: f.rem(50);
+    transform: translateX(90px);
+  }
+
+  @media screen and (max-width:550px) {
+    transform: translateX(170px);
+  }
+
+  @include m.phone {
+    transform: translateX(200px);
+  }
+
+  @media screen and (max-width:450px) {
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    // transform: translateX(70%);
+  }
+}
+
+.items {
+  width: f.rem(881);
+  margin-right: f.rem(89);
+
+  @media screen and (max-width:1095px) {
+    margin-right: inherit;
+
+  }
+
+  @media screen and (max-width:935px) {
+    width: 600px;
+  }
+  @include m.phone {
+    max-width: 480px;
+    width: inherit;
+  }
+
+}
+
+.link {
+  margin-right: f.rem(93);
+  font-size: f.rem(14);
+  color: #000000;
+  line-height: f.pr(14, 16.48);
+}

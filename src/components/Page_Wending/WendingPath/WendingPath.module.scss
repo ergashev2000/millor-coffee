@@ -1,0 +1,88 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.container {
+  padding-block: f.rem(30) f.rem(33);
+
+  @include m.tablet {
+    padding-block: f.rem(39) f.rem(59);
+  }
+
+  @include m.phone {
+    padding-block: f.rem(30) f.rem(13);
+  }
+}
+
+.navigation {
+  display: flex;
+  gap: f.rem(11);
+  flex-wrap: wrap;
+
+  @include m.tablet {
+    gap: f.rem(20);
+  }
+
+  @include m.phone {
+    gap: f.rem(12);
+  }
+}
+
+.navigationItem {
+  font-size: f.rem(12);
+  line-height: f.ratio(12, 14.12);
+  position: relative;
+  color: v.$darkGrey;
+
+  @include m.tablet {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 23.54);
+  }
+
+  @include m.phone {
+    font-size: f.rem(10);
+    line-height: f.ratio(10, 11.77);
+  }
+
+  a {
+    text-decoration: none;
+    color: v.$darkGrey;
+    font-size: f.rem(12);
+    line-height: f.pr(12, 14.12);
+
+    @include m.tablet {
+      font-size: f.rem(20);
+      line-height: f.ratio(20, 23.54);
+    }
+
+    @include m.phone {
+      font-size: f.rem(10);
+      line-height: f.ratio(10, 11.77);
+    }
+  }
+
+  &:not(:first-child)::before {
+    width: f.rem(3);
+    height: f.rem(3);
+    position: absolute;
+    display: block;
+    content: '';
+    border-radius: 50%;
+    background-color: v.$darkGrey;
+    top: 50%;
+    transform: translateY(-50%);
+    left: f.rem(-7);
+
+    @include m.tablet {
+      width: f.rem(4);
+      height: f.rem(4);
+      left: f.rem(-12);
+    }
+
+    @include m.phone {
+      width: f.rem(2);
+      height: f.rem(2);
+      left: f.rem(-7);
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@use 'variables.scss' as v;
+
+
+//функция перевода в rem
+@function rem($size) {
+  @return calc($size / 16 * 1rem);
+}
+
+//функция перевода в %
+@function pr($sizeBox , $size) {
+  @return calc($size / $sizeBox * 100%);
+}
+
+//функция перевода в соотношение для line-height
+@function ratio($sizeBox, $size) {
+  @return calc($size / $sizeBox);
+}
+
+//функция перевода в vw, где числом указывается максимальный размер макета. 
+// Напр:  width: f.vw(340, 768); 340-это размер элемента, а 768- размер экрана.
+@function vw($value, $base: v.$maxWidth) {
+  @return calc($value / $base * 100vw);
+}

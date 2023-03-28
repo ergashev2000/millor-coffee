@@ -1,0 +1,29 @@
+.discount-slider {
+
+  .slick-next:before,
+  .slick-prev:before {
+    position: relative;
+    left: 30px;
+    content: url('../../../images/Discount Goods/next.png') !important;
+    opacity: 1 !important;
+    display: block;
+    width: 49px;
+    height: 49px;
+  }
+
+  .slick-prev:before {
+    position: relative;
+    left: -55px;
+    content: url('../../../images/Discount Goods/prew.png') !important;
+  }
+
+  .slick-list {
+    padding: 40px 7px 7px 7px !important;
+  }
+}
+
+
+
+
+
+// .discount-slider {}

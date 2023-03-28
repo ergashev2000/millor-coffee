@@ -1,0 +1,124 @@
+@use '../../style/variables.scss' as v;
+@use '../../style/mixins.scss' as m;
+@use '../../style/functions.scss' as f;
+
+.production {
+  @media screen and (min-width:769px) {
+
+    .tablet,
+    .phone {
+      display: none;
+      position: absolute;
+      opacity: 0;
+    }
+  }
+
+  @include m.tablet {
+
+    .laptop,
+    .phone {
+      display: none;
+      position: absolute;
+      opacity: 0;
+    }
+
+    .tablet {
+      display: block;
+      position: relative;
+      opacity: 1;
+    }
+  }
+
+  @include m.phone {
+
+    .laptop,
+    .tablet {
+      display: none;
+      position: absolute;
+      opacity: 0;
+    }
+
+    .phone {
+      display: block;
+      position: relative;
+      opacity: 1;
+    }
+  }
+}
+
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: f.rem(20);
+  row-gap: f.rem(50);
+  margin-top: f.rem(58);
+
+  @include m.laptop {
+    grid-template-columns: repeat(auto-fill, 280px);
+    justify-content: center;
+    place-items: center;
+  }
+
+  @include m.netbook {
+    gap: f.rem(20);
+  }
+
+  @include m.tablet {
+    grid-template-columns: repeat(auto-fill, 340px);
+  }
+
+  @include m.phone {
+    grid-template-columns: 1fr;
+  }
+}
+
+.link {
+  a {
+    font-family: 'Gilroy',
+      sans-serif;
+    font-weight: 500;
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 16.48);
+    color: v.$black;
+    padding: f.rem(10) f.rem(25);
+
+    @include m.tablet {
+      font-size: f.rem(20);
+      line-height: f.ratio(20, 26);
+    }
+
+    @include m.phone {
+      font-size: f.rem(18);
+      line-height: f.ratio(18, 21.19);
+    }
+  }
+
+  a:hover {
+    background: #F9F9F9;
+    border-radius: f.rem(30);
+    color: v.$yellow;
+  }
+}
+
+.btn {
+  margin-top: f.rem(50);
+  height: f.rem(49);
+  width: 100%;
+  background: v.$white;
+  border: 0.708508px solid #E4E4E4;
+  border-radius: f.rem(7);
+  margin-bottom: f.rem(41);
+  cursor: pointer;
+  font-family: 'Gilroy', sans-serif;
+  font-weight: 500;
+  font-size: f.rem(14);
+  line-height: f.ratio(14, 16.48);
+  transition-property: background-color;
+  transition-duration: 0.5s;
+
+  &:hover {
+    background: #FFF7E1;
+    border: 1px solid #E4E4E4;
+  }
+}

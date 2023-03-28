@@ -1,0 +1,70 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+
+.slick-dots {
+  top: 0;
+  display: flex !important;
+  justify-content: right;
+  bottom: inherit;
+
+  @include m.tablet {
+    top: inherit;
+    bottom: 300px;
+    justify-content: left;
+    gap: f.rem(30);
+  }
+
+  @media screen and (max-width:650px) {
+    gap: f.rem(20);
+    bottom: 230px;
+  }
+
+  @include m.phone {
+    gap: f.rem(16);
+    bottom: 200px;
+  }
+
+  @media screen and (max-width:340px) {
+    gap: f.rem(6);
+    bottom: 85px;
+  }
+
+  & li button:before {
+    width: 7px;
+    height: 7px;
+    font-size: f.rem(14);
+    color: v.$white;
+    opacity: 1;
+    box-shadow: 3px 0px 13px 5px v.$yellow;
+    border-radius: 50%;
+    line-height: 7px;
+
+    @include m.tablet {
+      font-size: f.rem(25);
+      color: #E9E9E9;
+      box-shadow: initial;
+    }
+
+    @media screen and (max-width:650px) {
+      font-size: f.rem(18);
+    }
+
+    @include m.phone {
+      font-size: f.rem(13);
+    }
+  }
+}
+
+.slick-dots li.slick-active button:before {
+  @include m.tablet {
+    color: v.$yellow;
+  }
+}
+
+
+.HomeSlider.slick-slider {
+
+  margin-right: -15px;
+}

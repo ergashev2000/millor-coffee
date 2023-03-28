@@ -1,0 +1,7 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.teaSubscription {
+  background: url('../../../images/Coffee/bg2.png')50% 60px/100% 37% no-repeat, v.$white;
+}

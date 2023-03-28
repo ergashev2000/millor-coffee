@@ -1,0 +1,60 @@
+@use '../../../style/variables' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+
+.socialNetwork-slider {
+  .slick-track {
+    height: f.rem(800);
+
+    @include m.phone {
+      height: f.rem(446);
+    }
+  }
+
+  .slick-list {
+    display: grid;
+    place-items: center;
+  }
+
+  .slick-slide {
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+    z-index: 1;
+    height: f.rem(389);
+
+    @include m.phone {
+      height: f.rem(183);
+    }
+  }
+
+
+  .slick-prev {
+    z-index: 10;
+    top: f.rem(630);
+    left: f.rem(2);
+
+    @include m.phone {
+      top: f.rem(350);
+      left: f.rem(2);
+    }
+  }
+
+
+  .slick-prev:before {
+    display: block;
+    width: f.rem(81);
+    height: f.rem(81);
+    content: '';
+    background-image: url('../../../images/socialNetworks/prev.png');
+    background-size: 100%;
+    opacity: 1;
+
+    @include m.phone {
+      width: f.rem(40);
+      height: f.rem(40);
+    }
+  }
+
+}

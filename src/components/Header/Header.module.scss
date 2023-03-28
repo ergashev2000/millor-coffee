@@ -1,0 +1,426 @@
+@use '../../style/variables.scss' as v;
+@use '../../style/mixins.scss' as m;
+@use '../../style/functions.scss' as f;
+
+.header {
+  min-height: f.rem(113);
+  background-color: v.$white;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  box-shadow: 0px 3.54254px 14.1702px rgba(157, 157, 157, 0.25);
+  overflow: clip;
+
+  @include m.phone {
+    min-height: f.rem(70);
+  }
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: f.rem(20);
+  padding-bottom: f.rem(13);
+  overflow: hidden;
+
+  @include m.tablet {
+    padding-block: f.rem(20);
+  }
+
+  @include m.phone {
+    padding-block: f.rem(10);
+  }
+}
+
+.nav {
+  @include m.tablet {
+    display: none;
+  }
+}
+
+
+.navList {
+  display: flex;
+  gap: f.vw(60);
+
+  @include m.tablet {
+    flex-direction: column;
+    row-gap: f.rem(40);
+    margin-bottom: f.rem(80);
+  }
+
+  @include m.phone {
+    row-gap: f.rem(20);
+    margin-bottom: f.rem(40);
+  }
+}
+
+.navItem {
+  a {
+    position: relative;
+    line-height: 100%;
+    color: v.$black;
+    text-decoration: none;
+    display: inline-block;
+    padding-bottom: f.rem(10);
+
+    @include m.tablet {
+      color: #181818;
+      font-size: f.rem(32);
+      line-height: f.ratio(32, 37.66);
+    }
+
+    @include m.phone {
+      font-size: f.rem(16);
+      line-height: f.ratio(16, 18.83);
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      height: 2px;
+      background-color: v.$yellow;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      transition: all 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+.icons {
+  display: flex;
+  gap: f.vw(40);
+  padding-inline: f.rem(10);
+
+  @include m.tablet {
+    gap: f.vw(60);
+  }
+
+  @include m.phone {
+    gap: f.vw(30);
+  }
+}
+
+.icon,
+.iconActive {
+  width: f.rem(22);
+  height: f.rem(22);
+  cursor: pointer;
+  position: relative;
+
+  @include m.tablet {
+    width: f.rem(34);
+    height: f.rem(34);
+  }
+
+  @include m.phone {
+    width: f.rem(19);
+    height: f.rem(19);
+  }
+}
+
+.iconActive {
+  width: f.rem(22);
+  height: f.rem(22);
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  right: -15px;
+  background: v.$yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: f.rem(12.76);
+  line-height: f.pr(12.76, 15.43);
+
+  @include m.phone {
+    width: f.rem(17);
+    height: f.rem(17);
+    font-size: f.rem(12);
+    top: -10px;
+    right: -10px;
+  }
+}
+
+.activeSearch {
+  max-width: f.rem(850);
+  width: f.vw(850);
+  height: f.rem(42);
+  background: v.$white;
+  box-shadow: 0px 0px 20px rgba(157, 157, 157, 0.25);
+  border-radius: 30px;
+  color: #C4C4C4;
+  font-weight: 500;
+  line-height: 130%;
+  font-size: f.rem(16);
+  padding-left: f.rem(72);
+  background: url('../../images/header/search-active.png') 30px no-repeat;
+
+  &:focus {
+    outline: none;
+  }
+
+  @include m.tablet {
+    display: none;
+    position: absolute;
+  }
+
+}
+
+.searchTablet {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  background-color: v.$white;
+  overflow: auto;
+  padding: f.rem(60) f.rem(34);
+
+
+  @media screen and (min-width:769px) {
+    display: none;
+    position: absolute;
+  }
+
+  @include m.phone {
+    padding: f.rem(30) f.rem(16) f.rem(30) f.rem(18);
+  }
+
+  .wrapperSearchTablet {
+    height: f.rem(70);
+    display: flex;
+    gap: f.rem(29);
+    align-items: center;
+
+    @include m.phone {
+      gap: f.rem(16);
+    }
+  }
+
+  .activeSearchTablet {
+    flex: 1 1 580px;
+    height: f.rem(70);
+    background: #FFFFFF;
+    box-shadow: 0px 0px 20px rgba(157, 157, 157, 0.25);
+    border-radius: 20px;
+    color: #C4C4C4;
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 26);
+    padding-inline: f.rem(84) f.rem(10);
+    background: url('../../images/header/search-active.png') 5% center/24px 24px no-repeat;
+
+    @include m.phone {
+      flex: 1 1 270px;
+      height: f.rem(30);
+      padding-inline: f.rem(47) f.rem(10);
+      font-size: f.rem(12);
+      line-height: f.ratio(12, 15.6);
+      background: url('../../images/header/search-active.png') 5% center/12px 12px no-repeat;
+    }
+  }
+
+  span {
+    cursor: pointer;
+    color: v.$yellow;
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 26);
+
+    @include m.phone {
+      font-size: f.rem(12);
+      line-height: f.ratio(12, 15.6);
+    }
+  }
+}
+
+.wrapperLogo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: f.rem(173);
+  padding-top: f.rem(20);
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background-color: v.$white;
+
+  @include m.phone {
+    margin-bottom: f.rem(80);
+  }
+}
+
+.wrapperIcons {
+  display: flex;
+  gap: f.rem(60);
+  align-items: center;
+
+  @include m.phone {
+    gap: f.rem(30);
+  }
+}
+
+.logo {
+  width: f.rem(179);
+  height: f.rem(80);
+
+  @include m.tablet {
+    width: f.rem(225);
+    height: f.rem(102);
+  }
+
+  @include m.phone {
+    width: f.rem(110);
+    height: f.rem(50);
+  }
+}
+
+.mobileBtn {
+  display: none;
+  width: f.rem(60);
+  height: 0px;
+  border-bottom: 3px solid v.$black;
+  position: relative;
+  cursor: pointer;
+  padding-block: f.rem(16);
+
+  @include m.tablet {
+    display: inline-block;
+  }
+
+  @include m.phone {
+    width: f.rem(29);
+    border-bottom: 2px solid v.$black;
+    padding-block: f.rem(8);
+  }
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: v.$black;
+    position: absolute;
+    left: 0;
+
+    @include m.phone {
+      height: 1.5px;
+    }
+  }
+
+  &::after {
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: v.$black;
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    @include m.phone {
+      height: 1.5px;
+    }
+  }
+}
+
+.mobileBtnClose {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  cursor: pointer;
+
+  @include m.phone {
+    width: 20px;
+    height: 20px;
+  }
+
+  &::after {
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: v.$black;
+    transform: rotate(45deg);
+    position: absolute;
+    top: calc(50% - 1.5px);
+  }
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: v.$black;
+    transform: rotate(-45deg);
+    position: absolute;
+    top: calc(50% - 1.5px);
+  }
+}
+
+.containerOpenNav {
+  width: 100%;
+  height: 100vh;
+  padding-inline: f.rem(18);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  background-color: v.$white;
+  overflow: auto;
+}
+
+.wrapperContant {
+  margin-top: f.rem(390);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: f.rem(80);
+
+  @include m.phone {
+    row-gap: f.rem(40);
+    margin-top: f.rem(190);
+  }
+
+  a {
+    font-weight: 700;
+    font-size: f.rem(32);
+    line-height: f.ratio(32, 41.6);
+    color: v.$darkGrey;
+
+    @include m.phone {
+      font-size: f.rem(16);
+      line-height: f.ratio(16, 20.8);
+    }
+  }
+}
+
+.contantImages {
+  display: flex;
+  gap: f.rem(41);
+
+  @include m.phone {
+    gap: f.rem(20);
+  }
+
+  img {
+    width: f.rem(102);
+    height: f.rem(102);
+    cursor: pointer;
+
+    @include m.phone {
+      width: f.rem(50);
+      height: f.rem(50);
+    }
+  }
+}

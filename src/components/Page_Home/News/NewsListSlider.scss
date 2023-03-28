@@ -1,0 +1,34 @@
+@use '../../../style/variables' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+
+.news-slider {
+  position: relative;
+
+  .slick-arrow {
+    position: absolute;
+    top: -95px;
+
+    @include m.phone {
+      top: -30px;
+    }
+  }
+
+  .slick-next::before {
+    content: url('../../../images/news/next.png');
+  }
+
+  .slick-prev:before {
+    content: url('../../../images/news/prew.png');
+  }
+
+  .slick-prev {
+    left: 0;
+  }
+
+  .slick-next {
+    right: 80px;
+  }
+
+}

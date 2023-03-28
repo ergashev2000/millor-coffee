@@ -1,0 +1,561 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.container {
+  background: v.$white;
+  border: 0.708508px solid #E4E4E4;
+  box-shadow: 0px 0px 35.4254px rgba(163, 163, 163, 0.25);
+  border-radius: f.rem(14);
+  display: flex;
+  gap: f.rem(71);
+  align-items: center;
+  padding: f.rem(74) f.rem(78) f.rem(61);
+
+  @include m.netbook {
+    gap: f.rem(40);
+    padding: f.rem(74) f.rem(40) f.rem(61);
+  }
+
+  @include m.tablet {
+    flex-direction: column;
+    padding: f.rem(50) f.rem(37) f.rem(111);
+    border: 2px solid #E4E4E4;
+    box-shadow: 0px 0px 102.4px rgba(163, 163, 163, 0.25);
+    border-radius: f.rem(40);
+  }
+
+  @include m.phone {
+    padding: f.rem(25) f.rem(20) f.rem(40);
+    border: 1px solid #E4E4E4;
+    box-shadow: 0px 0px 50px rgba(163, 163, 163, 0.25);
+    border-radius: f.rem(20);
+    gap: f.rem(20);
+  }
+}
+
+.image {
+  min-width: f.rem(351);
+  height: f.rem(458);
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  @include m.tablet {
+    min-width: initial;
+    width: f.rem(291);
+    height: f.rem(396);
+    margin-top: f.rem(10);
+  }
+
+  @include m.phone {
+    width: f.rem(143);
+    height: f.rem(194);
+    margin-top: f.rem(5);
+  }
+
+  &::after {
+    width: f.rem(139);
+    height: f.rem(139);
+    content: '';
+    background: url('../../../images/tea/img01.png')center/cover no-repeat;
+    position: absolute;
+    border-radius: 50%;
+    right: 14px;
+    bottom: 50px;
+
+    @include m.tablet {
+      width: f.rem(110);
+      height: f.rem(110);
+      right: 1px;
+      bottom: 48px;
+    }
+
+    @include m.phone {
+      width: f.rem(56);
+      height: f.rem(56);
+      right: 0px;
+      bottom: 24px;
+    }
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+}
+
+.contant {
+  @include m.tablet {
+    width: 100%;
+  }
+}
+
+.wrapperTitle {
+  color: v.$darkGrey;
+  margin-bottom: f.rem(15);
+
+  @include m.tablet {
+    margin-bottom: f.rem(40);
+  }
+
+  @include m.phone {
+    margin-bottom: f.rem(20);
+  }
+}
+
+.title {
+  font-weight: 900;
+  font-size: f.rem(28);
+  line-height: f.ratio(28, 34.94);
+  margin-bottom: f.rem(20);
+
+  @include m.tablet {
+    font-size: f.rem(30);
+    line-height: f.ratio(30, 37.44);
+    margin-bottom: f.rem(15);
+  }
+
+  @include m.phone {
+    font-size: f.rem(18);
+    line-height: f.ratio(18, 22.46);
+    margin-bottom: f.rem(5);
+  }
+}
+
+.text {
+  font-size: f.rem(14);
+  line-height: f.ratio(14, 16.48);
+
+  @include m.tablet {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 23.54);
+  }
+
+  @include m.phone {
+    font-size: f.rem(12);
+    line-height: f.ratio(12, 14.12);
+  }
+}
+
+.reviews {
+  display: flex;
+  gap: f.rem(15);
+
+  @include m.tablet {
+    display: none;
+    position: absolute;
+  }
+
+  .reviewsStars {
+    width: f.rem(128);
+    height: f.rem(24);
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .reviewsText {
+    font-weight: 700;
+    font-size: f.rem(22);
+    line-height: f.ratio(22, 26.6);
+    margin-right: f.rem(15);
+    color: v.$darkGrey;
+
+    span {
+      color: #5B5B5B;
+      font-size: f.rem(12);
+      line-height: f.ratio(12, 14.12);
+    }
+  }
+}
+
+.reviewsTablet {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (min-width:769px) {
+    display: none;
+    position: absolute;
+  }
+
+  .reviewsStars {
+    width: f.rem(290);
+    height: f.rem(50);
+
+    @include m.phone {
+      width: f.rem(142);
+      height: f.rem(25);
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .reviewsText {
+    font-weight: 700;
+    color: v.$darkGrey;
+    font-size: f.rem(32);
+    line-height: f.ratio(32, 41.6);
+    margin-right: f.rem(30);
+
+    @include m.phone {
+      font-size: f.rem(16);
+      line-height: f.ratio(16, 20.8);
+      margin-right: f.rem(13);
+    }
+
+    span {
+      font-weight: 500;
+      font-size: f.rem(24);
+      line-height: f.ratio(24, 28.25);
+      color: v.$darkGrey;
+
+      @include m.phone {
+        font-size: f.rem(12);
+        line-height: f.ratio(12, 14.12);
+      }
+    }
+  }
+}
+
+.contantAbout {
+  max-width: f.rem(467);
+  margin-block: f.rem(35) f.rem(32);
+
+  @include m.tablet {
+    margin-block: f.rem(40) f.rem(30);
+  }
+
+  @include m.phone {
+    margin-block: f.rem(20);
+  }
+}
+
+.aboutText {
+  font-size: f.rem(14);
+  line-height: f.ratio(14, 18.2);
+  color: v.$darkGrey;
+
+  @include m.tablet {
+    display: none;
+    position: absolute;
+  }
+}
+
+.aboutLink,
+.aboutTextTablet {
+  @media screen and (min-width:769px) {
+    display: none !important;
+    position: absolute;
+  }
+}
+
+.aboutTextTablet {
+  max-width: f.rem(402);
+  height: f.rem(80);
+  font-size: f.rem(20);
+  color: v.$darkGrey;
+  line-height: f.ratio(20, 26);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  &.show {
+    height: initial;
+    overflow: initial;
+    text-overflow: initial;
+    display: block;
+  }
+
+  @include m.phone {
+    max-width: f.rem(306);
+    height: f.rem(48);
+    font-size: f.rem(12);
+    line-height: f.ratio(12, 15.16);
+  }
+}
+
+.aboutLink {
+  // max-width: f.rem(240);
+  color: v.$yellow;
+  font-size: f.rem(25);
+  line-height: f.ratio(25, 29.43);
+  position: relative;
+  cursor: pointer;
+
+  @media screen and (min-width:769px) {
+    display: none;
+    position: absolute;
+  }
+
+  @include m.phone {
+    max-width: f.rem(123);
+    font-size: f.rem(12);
+    line-height: f.ratio(12, 14.12);
+  }
+
+  &::after {
+    width: f.rem(20);
+    height: f.rem(10);
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: f.rem(-30);
+    background: url('../../../images/Coffee/icon2.png')center/100% 100% no-repeat;
+
+    @include m.phone {
+      width: f.rem(10);
+      height: f.rem(5);
+      right: f.rem(-15);
+    }
+  }
+
+  &.show::after {
+    transform: translateY(-50%) rotate(180deg);
+  }
+}
+
+.wrapperForm {
+  @include m.tablet {
+    display: none;
+    position: absolute;
+  }
+}
+
+.wrapperSelect {
+  height: f.rem(70);
+  position: relative;
+  display: inline-block;
+  grid-area: select;
+
+  @media screen and (min-width:769px) {
+    display: none;
+    position: absolute;
+  }
+
+  @include m.phone {
+    height: f.rem(40);
+  }
+
+  &::after {
+    width: f.rem(20);
+    height: f.rem(10);
+    content: "";
+    position: absolute;
+    background: url('../../../images/Coffee/select.png')center/cover no-repeat;
+    right: f.rem(18);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+
+    @include m.phone {
+      width: f.rem(10);
+      height: f.rem(5);
+    }
+  }
+}
+
+.select {
+  appearance: none; // убираем стандартную стрелку
+  height: f.rem(70);
+  background: #FFF7E1;
+  border: 1px solid #F9B300;
+  border-radius: 5px;
+  font-size: f.rem(25);
+  line-height: f.ratio(25, 29.82);
+  padding-left: f.rem(50);
+
+  @include m.phone {
+    height: f.rem(40);
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 16.48);
+    padding-left: f.rem(20);
+  }
+}
+
+
+.formPackage {
+  display: flex;
+  gap: f.rem(30);
+  flex-wrap: wrap;
+  padding-block: f.rem(20);
+  position: relative;
+}
+
+.packageLabel {
+  display: flex;
+  align-items: center;
+  gap: f.rem(15);
+  font-size: f.rem(22);
+  line-height: f.ratio(22, 25.89);
+  cursor: pointer;
+}
+
+.packageInput {
+  width: 0;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+.customRadio {
+  width: f.rem(18);
+  height: f.rem(18);
+  display: inline-block;
+  background: #E4E4E4;
+  border-radius: 50%;
+  position: relative;
+  vertical-align: text-top;
+
+  &::before {
+    content: '';
+    display: none;
+    width: f.rem(18);
+    height: f.rem(18);
+    background: v.$yellow;
+    border-radius: 50%;
+  }
+}
+
+.packageInput:checked+.customRadio::before {
+  display: block;
+}
+
+.buttons {
+  display: flex;
+  gap: f.rem(15);
+  padding-top: f.rem(20);
+
+  @include m.netbook {
+    flex-wrap: wrap;
+  }
+
+  @include m.tablet {
+    margin-top: f.rem(96);
+    padding-top: f.rem(0);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: f.rem(20);
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 'select amount' 'btn btn';
+  }
+
+  @include m.phone {
+    margin-top: f.rem(32);
+    column-gap: f.rem(10);
+    row-gap: f.rem(20);
+  }
+}
+
+.itemAmount {
+  width: f.rem(184);
+  height: f.rem(49);
+  background: #f6f6f6;
+  border: 1px solid #d6d6d6;
+  border-radius: f.rem(5);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  text-align: center;
+  color: v.$darkGrey;
+  font-weight: 600;
+  font-size: f.rem(18);
+  line-height: f.ratio(18, 21.47);
+
+  @include m.tablet {
+    width: initial;
+    height: f.rem(70);
+    grid-area: amount;
+    font-size: f.rem(25);
+    line-height: f.ratio(25, 29.82);
+    color: v.$darkGrey;
+    background: #F0F0F0;
+    border: 2px solid #D6D6D6;
+    border-radius: 10px;
+  }
+
+  @include m.phone {
+    height: f.rem(40);
+    font-size: f.rem(16);
+    line-height: f.ratio(16, 19.09);
+  }
+
+  button {
+    height: 100%;
+    color: v.$black;
+    font-weight: 500;
+    font-size: f.rem(22);
+    line-height: f.ratio(22, 25.89);
+    background: #F6F6F6;
+    cursor: pointer;
+
+    @include m.tablet {
+      font-size: f.rem(40);
+      line-height: f.ratio(40, 47.08);
+      border-radius: 10px;
+      background: #F0F0F0;
+    }
+
+    @include m.phone {
+      font-size: f.rem(20);
+      line-height: f.ratio(20, 23.54);
+    }
+
+    &:hover {
+      background: #cccccc;
+    }
+  }
+}
+
+.buyBtn {
+  width: f.rem(184);
+  height: f.rem(49);
+
+  @include m.tablet {
+    width: 100%;
+    height: f.rem(70);
+    grid-area: btn;
+    border-radius: f.rem(5);
+  }
+
+  @include m.phone {
+    height: f.rem(40);
+  }
+
+  button {
+    width: 100%;
+    height: 100%;
+    background: v.$yellow;
+    border-radius: f.rem(4);
+    font-weight: 600;
+    font-size: f.rem(18);
+    line-height: f.ratio(18, 21.47);
+    color: v.$white;
+
+    @include m.tablet {
+      font-size: f.rem(25);
+      line-height: f.ratio(25, 29.82);
+      border-radius: f.rem(5);
+    }
+
+    @include m.phone {
+      font-size: f.rem(14);
+      line-height: f.ratio(14, 16.7);
+    }
+
+    &:hover {
+      background: v.$darkYellow;
+    }
+  }
+}

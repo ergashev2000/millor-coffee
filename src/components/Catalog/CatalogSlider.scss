@@ -1,0 +1,124 @@
+@use '../../style/variables' as v;
+@use '../../style/mixins' as m;
+@use '../../style/functions' as f;
+
+.catalog-slider {
+  .slick-list {
+    padding-block: f.rem(50) !important;
+  }
+
+  .slick-slide {
+    box-shadow: 0px 0px 30px rgba(146, 146, 146, 0.2);
+    background: v.$white;
+    border-radius: f.rem(20);
+  }
+
+  .btn {
+    width: 100%;
+    height: f.rem(70);
+    opacity: 0;
+    background: v.$yellow;
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: f.rem(25);
+    line-height: f.ratio(25, 30.22);
+    color: v.$white;
+    cursor: pointer;
+    transition-property: transform opacity;
+    transition-duration: 0.5s;
+
+    @include m.phone {
+      max-width: f.rem(232);
+      height: f.rem(50);
+    }
+
+    a {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: f.rem(25);
+      line-height: f.ratio(25, 30.22);
+      color: v.$white;
+
+      @media screen and (max-width:580px) {
+        font-size: f.rem(20);
+        line-height: f.ratio(20, 25.22);
+      }
+    }
+
+    &:hover {
+      background-color: v.$darkYellow;
+    }
+  }
+
+  .slick-active {
+    transform: scale(1.1);
+  }
+
+  .slick-active .btn {
+    opacity: 1;
+  }
+}
+
+.catalog-dots {
+  display: flex !important;
+  gap: f.rem(30);
+  justify-content: center;
+  margin-top: f.rem(35);
+
+  @include m.phone {
+    gap: f.rem(15);
+  }
+
+  & li {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  & li button {
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    cursor: pointer;
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+  }
+
+  & li button:before {
+    font-family: 'slick';
+    line-height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    content: '•';
+    text-align: center;
+    color: #E9E9E9;
+    font-size: f.rem(25);
+    opacity: 1;
+
+    @include m.phone {
+      font-size: f.rem(13);
+    }
+  }
+
+  & li.slick-active button:before {
+    opacity: 1;
+    color: v.$yellow;
+  }
+}

@@ -1,0 +1,116 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.blogTraining {
+  padding-block: f.rem(40);
+
+  @include m.tablet {
+    padding-block: f.rem(30) f.rem(40);
+  }
+
+  @include m.phone {
+    padding-block: f.rem(20);
+  }
+}
+
+.title {
+  font-weight: 900;
+  font-size: f.rem(28);
+  line-height: f.ratio(28, 34.94);
+  margin-bottom: f.rem(40);
+
+  @include m.tablet {
+    font-size: f.rem(36);
+    line-height: f.ratio(36, 44.93);
+  }
+
+  @include m.phone {
+    font-size: f.rem(18);
+    line-height: f.ratio(18, 22.46);
+    margin-bottom: f.rem(30);
+  }
+}
+
+.item {
+  p:not(:last-child) {
+    margin-bottom: f.rem(35);
+
+    @include m.tablet {
+      margin-bottom: f.rem(40);
+    }
+
+    @include m.phone {
+      margin-bottom: f.rem(28);
+    }
+  }
+}
+
+.text {
+  max-width: f.rem(978);
+  color: v.$darkGrey;
+  line-height: f.ratio(18, 23.4);
+  font-size: f.rem(18);
+
+  @include m.tablet {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 26);
+  }
+
+  @include m.phone {
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 18.2);
+  }
+}
+
+
+.ItemTitle {
+  font-weight: 700;
+  font-size: f.rem(22);
+  line-height: f.ratio(22, 26.6);
+  margin-block: f.rem(40);
+
+  @include m.tablet {
+    margin-block: f.rem(50) f.rem(30);
+    font-size: f.rem(30);
+    line-height: f.ratio(30, 36.27);
+  }
+
+  @include m.phone {
+    margin-block: f.rem(40) f.rem(20);
+    font-size: f.rem(16);
+    line-height: f.ratio(16, 19.34);
+  }
+}
+
+.img {
+  width: 100%;
+  height: f.rem(389);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-top: f.rem(50);
+  position: relative;
+
+  img {
+    max-width: inherit;
+    position: relative;
+    max-height: 100%;
+    transform: translateX(-50%);
+    left: 50%;
+  }
+
+  @include m.tablet {
+    height: f.rem(348);
+    margin-top: f.rem(70);
+  }
+
+  @include m.phone {
+    height: f.rem(170);
+    margin-top: f.rem(30);
+  }
+}
+
+.tablet{
+  display: none;
+  position: absolute;
+}

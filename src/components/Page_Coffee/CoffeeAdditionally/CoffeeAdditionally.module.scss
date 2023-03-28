@@ -1,0 +1,88 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.coffeeAdditionally {
+  padding-bottom: f.rem(20);
+}
+
+.title {
+  padding-block: f.rem(30) f.rem(40);
+  font-weight: 900;
+  font-size: f.rem(28.33);
+  line-height: f.ratio(28.33, 35.35);
+
+  @include m.tablet {
+    font-size: f.rem(36);
+    line-height: f.ratio(36, 44.93);
+  }
+
+  @include m.phone {
+    font-size: f.rem(18);
+    line-height: f.ratio(18, 22.46);
+    padding-block: f.rem(30);
+  }
+}
+
+.laptop {
+  display: flex;
+  flex-direction: column;
+  gap: f.rem(30);
+
+  @include m.tablet {
+    display: none;
+    position: absolute;
+  }
+}
+
+.ItemTitle {
+  font-weight: 700;
+  font-size: f.rem(22);
+  line-height: f.ratio(22, 26.6);
+  padding-block: f.rem(40);
+
+  @include m.tablet {
+    font-size: f.rem(30);
+    line-height: f.ratio(30, 36.27);
+    padding-block: f.rem(60) f.rem(40);
+  }
+
+  @include m.phone {
+    font-size: f.rem(16);
+    line-height: f.ratio(16, 19.34);
+    padding-block: f.rem(30) f.rem(20);
+  }
+}
+
+.text {
+  max-width: f.rem(963);
+  font-size: f.rem(18);
+  line-height: f.ratio(18, 23.4);
+  color: v.$darkGrey;
+
+  @include m.tablet {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 26);
+  }
+
+  @include m.phone {
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 18.2);
+  }
+
+}
+
+.img {
+  margin-top: f.rem(50);
+
+  @include m.phone {
+    margin-top: f.rem(20);
+  }
+}
+
+.tablet {
+  @media screen and (min-width:769px) {
+    display: none;
+    position: absolute;
+  }
+}

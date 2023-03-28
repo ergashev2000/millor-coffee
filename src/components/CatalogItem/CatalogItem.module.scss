@@ -1,0 +1,107 @@
+@use '../../style/variables.scss' as v;
+@use '../../style/mixins.scss' as m;
+@use '../../style/functions.scss' as f;
+
+.item {
+  height: f.rem(381);
+  flex: 0 1 f.rem(280);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  box-shadow: 0px 0px 30px rgba(146, 146, 146, 0.2);
+  background: v.$white;
+  border-radius: f.rem(20);
+
+  &:hover {
+    .btn {
+      opacity: 1;
+    }
+
+    .image {
+      transform: scale(1.3) translateY(-25px);
+    }
+
+    .text {
+      transform: translateY(-23px);
+      font-size: f.rem(21);
+      line-height: f.pr(21, 25.39);
+      text-align: center;
+    }
+  }
+}
+
+.sliderWrapper {
+  height: f.rem(412);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: f.rem(0) f.rem(40) f.rem(20) f.rem(40);
+
+  @media screen and (max-width:580px) {
+    padding-inline: f.rem(20);
+  }
+
+  .text {
+    font-size: f.rem(22);
+    font-weight: 700;
+    line-height: f.ratio(22, 26.6);
+
+    @media screen and (max-width:580px) {
+      font-size: f.rem(18);
+      line-height: f.ratio(18, 22.6);
+    }
+  }
+}
+
+.image {
+  max-width: f.rem(200);
+  max-height: f.rem(200);
+  margin-bottom: f.rem(40);
+  flex: 1 1 auto;
+  transform-origin: center bottom;
+  transition-property: transform;
+  transition-duration: 0.5s;
+}
+
+.text {
+  margin-bottom: f.rem(20);
+  font-size: f.rem(18);
+  line-height: f.pr(18, 21.76);
+  font-weight: 700;
+  transform-origin: center bottom;
+  transition-property: transform, font-size;
+  transition-duration: 0.5s;
+}
+
+.btn {
+  opacity: 0;
+  max-width: f.rem(233);
+  width: 80%;
+  height: f.rem(42);
+  background-color: v.$yellow;
+  border-radius: f.rem(5);
+  margin-bottom: f.rem(46);
+  transition-property: opacity, background-color, translateY;
+  transition-duration: 0.5s;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-family: 'Gilroy', sans-serif;
+    text-decoration: none;
+    color: v.$white;
+    font-weight: 700;
+    font-size: f.rem(18);
+    line-height: f.pr(18, 21.76);
+  }
+
+  &:hover {
+    background-color: v.$darkYellow;
+  }
+
+}

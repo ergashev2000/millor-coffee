@@ -1,0 +1,223 @@
+@use '../../style/variables.scss' as v;
+@use '../../style/mixins.scss' as m;
+@use '../../style/functions.scss' as f;
+
+.subscription {
+  padding-block: f.rem(30);
+  overflow: hidden;
+
+  @include m.tablet {
+    padding-bottom: f.rem(70);
+  }
+
+  @include m.phone {
+    padding-block: 0 f.rem(30);
+  }
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0);
+  overflow: hidden;
+
+  @include m.tablet {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.title {
+  max-width: f.rem(554);
+  font-weight: 900;
+  font-size: f.rem(35);
+  line-height: f.ratio(35, 43.68);
+  margin-top: f.rem(170);
+  margin-right: f.rem(470);
+
+  @include m.tablet {
+    max-width: f.rem(475);
+    margin-right: inherit;
+    margin-top: inherit;
+    font-size: f.rem(30);
+    line-height: f.ratio(30, 37.44);
+    color: v.$darkGrey;
+  }
+
+  @include m.phone {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 24.96);
+  }
+}
+
+.text {
+  max-width: f.rem(536);
+  font-size: f.rem(18);
+  line-height: f.ratio(18, 23.44);
+  margin-block: f.rem(39);
+  margin-right: f.rem(400);
+
+  @include m.tablet {
+    max-width: f.rem(605);
+    margin-block: f.rem(50);
+    margin-right: inherit;
+    color: v.$darkGrey;
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 26);
+  }
+
+  @include m.phone {
+    max-width: f.rem(316);
+    margin-block: f.rem(30) f.rem(20);
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 18.2);
+  }
+}
+
+form {
+  @include m.tablet {
+    display: flex;
+    flex-direction: column;
+    gap: f.rem(20);
+  }
+}
+
+.input {
+  max-width: f.rem(769);
+  width: f.vw(769);
+  height: f.rem(56);
+  background: #F3F3F3;
+  border-radius: 28px;
+  color: #C9C9C9;
+  font-weight: 500;
+  line-height: 130%;
+  font-size: f.rem(18);
+  padding-left: f.rem(40);
+
+  @include m.netbook {
+    width: 74%;
+  }
+
+  @include m.tablet {
+    max-width: inherit;
+    width: 100%;
+    border-radius: 5px;
+    font-size: f.rem(22);
+    line-height: f.ratio(22, 28.6);
+    padding-left: f.rem(80);
+  }
+
+  @include m.phone {
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 18.2);
+    padding-left: f.rem(40);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.btn {
+  width: f.rem(179);
+  height: f.rem(57);
+  color: v.$white;
+  background: v.$yellow;
+  border-radius: 28.3403px;
+  font-weight: 700;
+  font-size: f.rem(18);
+  line-height: f.pr(18, 21.76);
+  transform: translateX(-179px);
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  cursor: pointer;
+
+  @include m.tablet {
+    max-width: inherit;
+    width: 100%;
+    border-radius: 5px;
+    transform: inherit;
+    font-size: f.rem(25);
+    line-height: f.ratio(25, 30.22);
+  }
+
+  @include m.phone {
+    font-size: f.rem(18);
+    line-height: f.ratio(18, 21.76);
+  }
+
+  &:hover {
+    background-color: v.$darkYellow;
+  }
+}
+
+.active {
+  max-width: f.rem(769);
+  width: f.vw(769);
+  height: f.rem(56);
+  color: v.$white;
+  background: v.$yellow;
+  border-radius: 28.3403px;
+  font-weight: 700;
+  font-size: f.rem(18);
+  line-height: f.pr(18, 21.76);
+
+  @include m.tablet {
+    max-width: inherit;
+    width: 100%;
+    border-radius: 5px;
+    font-size: f.rem(25);
+    line-height: f.ratio(25, 30.22);
+  }
+
+  @include m.phone {
+    font-size: f.rem(18);
+    line-height: f.ratio(18, 21.76);
+  }
+}
+
+.signature {
+  color: #5B5B5B;
+  font-size: f.rem(12);
+  line-height: 130%;
+  margin-top: f.rem(15);
+
+  @include m.tablet {
+    max-width: f.rem(492);
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 26);
+    margin-top: f.rem(20);
+  }
+
+  @include m.phone {
+    max-width: f.rem(245);
+    font-size: f.rem(10);
+    line-height: f.ratio(10, 13);
+    margin-top: f.rem(10);
+  }
+
+  a {
+    text-decoration: none;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+    color: v.$yellow;
+    line-height: 130%;
+  }
+}
+
+.img {
+  position: absolute;
+  right: f.rem(-25);
+  top: 0;
+
+  @include m.tablet {
+    max-width: f.rem(537);
+    width: 100%;
+    margin: 0px auto;
+    position: relative;
+    right: inherit;
+    top: inherit;
+    flex: 1 0 auto;
+  }
+}

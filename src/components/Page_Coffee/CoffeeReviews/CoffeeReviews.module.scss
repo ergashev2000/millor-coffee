@@ -1,0 +1,71 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.coffeeReviews {
+  padding-block: f.rem(80) f.rem(64);
+
+  @include m.tablet {
+    padding-block: f.rem(70) f.rem(40);
+  }
+
+  @include m.phone {
+    padding-block: f.rem(38) f.rem(12);
+  }
+}
+
+.title {
+  font-weight: 900;
+  font-size: f.rem(28);
+  line-height: f.ratio(28, 34.94);
+  margin-bottom: f.rem(80);
+
+  @include m.tablet {
+    font-size: f.rem(40);
+    line-height: f.ratio(40, 49.92);
+    margin-bottom: f.rem(70);
+  }
+
+  @include m.phone {
+    font-size: f.rem(18);
+    line-height: f.ratio(18, 22.46);
+    margin-bottom: f.rem(20);
+  }
+}
+
+.btn {
+  height: f.rem(49);
+  width: 100%;
+  background: v.$white;
+  border: 0.708508px solid #E4E4E4;
+  border-radius: f.rem(7);
+  cursor: pointer;
+  font-family: 'Gilroy', sans-serif;
+  font-weight: 500;
+  font-size: f.rem(14);
+  line-height: f.ratio(14, 16.48);
+  margin-top: f.rem(50);
+  transition-property: background-color;
+  transition-duration: 0.5s;
+
+  @include m.tablet {
+    height: f.rem(70);
+    font-size: f.rem(25);
+    line-height: f.ratio(25, 29.43);
+    margin-top: f.rem(30);
+  }
+
+  @include m.phone {
+    height: f.rem(40);
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 16.48);
+    margin-top: f.rem(30);
+    border: 1px solid #E4E4E4;
+    border-radius: f.rem(5);
+  }
+
+  &:hover {
+    background: #FFF7E1;
+    border: 1px solid #E4E4E4;
+  }
+}

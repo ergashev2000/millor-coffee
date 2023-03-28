@@ -1,0 +1,50 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+
+.item {
+  width: f.rem(280);
+  height: f.rem(270);
+  background: #E9E9E9;
+  border-radius: f.rem(8);
+
+  @include m.tablet {
+    width: f.rem(340);
+    height: f.rem(390);
+    background: v.$white;
+    border-radius: f.rem(10);
+  }
+
+  @media screen and (max-width:750px) {
+    width: f.rem(300);
+  }
+
+  @media screen and (max-width:670px) {
+    width: f.rem(250);
+  }
+
+  @media screen and (max-width:600px) {
+    width: f.rem(200);
+  }
+
+  @include m.phone {
+    width: f.rem(160);
+    height: f.rem(183);
+  }
+
+  @media screen and (max-width:390px) {
+    width: f.rem(130);
+    height: f.rem(183);
+  }
+
+  @media screen and (max-width:320px) {
+    width: f.rem(100);
+    height: f.rem(183);
+  }
+
+  img {
+    max-width: 90%;
+    max-height: 100%;
+  }
+}

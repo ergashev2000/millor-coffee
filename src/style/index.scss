@@ -1,0 +1,197 @@
+@use 'variables.scss' as v;
+@use 'mixins.scss' as m;
+@use 'functions.scss' as f;
+@import-normalize;
+@import '../fonts/Gilroy/fonts.scss';
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: initial;
+}
+
+button {
+  font-family: inherit;
+}
+
+img,
+svg {
+  vertical-align: top;
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  font-family: 'Gilroy', sans-serif;
+  font-weight: 500;
+  font-size: f.rem(18);
+  background: url('../images/bg1.png') top right no-repeat,
+    url('../images/bg2.png') top f.rem(800) left no-repeat,
+    url('../images/bg3.png')center 49%/contain no-repeat,
+    url('../images/bg4.png')center 90%/100% 23% no-repeat;
+
+  @media screen and (max-width:1031px) {
+    background: url('../images/bg1.png') top right no-repeat,
+      url('../images/bg2.png') top f.rem(800) left no-repeat,
+      url('../images/bg3.png')center 50%/contain no-repeat,
+      url('../images/bg4.png')50% 3820px/100% 28% no-repeat;
+  }
+
+  @include m.netbook {
+    background: url('../images/bg1.png') top right no-repeat,
+      url('../images/bg2.png') top f.rem(800) left no-repeat,
+      url('../images/bg3.png')center 47%/auto auto  no-repeat,
+      url('../images/bg4.png')center 90%/contain no-repeat;
+  }
+
+  @include m.tablet {
+    background: url('../images/bg1.png') right 60px/250px 12% no-repeat,
+      url('../images/bg2.png') -140px 1500px/35% 12% no-repeat,
+      url('../images/bg3_tablet.png')0% 45%/auto auto  no-repeat,
+      url('../images/bg4.png')center 84%/ auto no-repeat;
+  }
+
+  @media screen and (max-width:600px) {
+    background: url('../images/bg1.png') right 60px/220px 11% no-repeat,
+      url('../images/bg2.png') -140px 1500px/45% 11% no-repeat,
+      url('../images/bg3_tablet.png')center 45%/auto auto no-repeat,
+      url('../images/bg4.png')center 84%/ auto no-repeat;
+  }
+
+  @include m.phone {
+    background:
+      url('../images/bg1.png') right 60px/100px 8% no-repeat,
+      url('../images/bg2.png') left 1090px/20% 10% no-repeat,
+      url('../images/bg3_phone.png')center 45.5%/ auto no-repeat,
+      url('../images/bg4.png')center 86%/contain no-repeat;
+  }
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.container {
+  max-width: v.$maxWidthContainer + 30px;
+  padding: 0 f.rem(15);
+  margin: 0 auto;
+  position: relative;
+}
+
+.logo {
+  width: f.rem(179);
+  height: f.rem(80);
+}
+
+.active-header {
+  &::after {
+    width: 100% !important;
+  }
+}
+
+.active-contacts {
+  background: #FFF7E1 !important;
+  border: 0.705321px solid v.$yellow !important;
+  border-radius: 4px !important;
+}
+
+.active-nav {
+  svg * {
+    stroke: v.$yellow;
+  }
+}
+
+.coffeeCatalog {
+  background: #F5F5F5;
+  overflow: hidden;
+}
+
+.catalog {
+  flex: 1 1 auto;
+  background: url('../images/Catalog Coffee/bg1.png') 0 0/100% no-repeat, v.$white;
+}
+
+.teaCatalog,
+.wendingProducts,
+.healthyDiet {
+  background: url('../images/TeaCatalog/bg1.png') center top/100% 514px no-repeat,
+    url('../images/Catalog Coffee/bg2.png') 0px 700px/cover no-repeat,
+    v.$white;
+  overflow: hidden;
+
+  @include m.tablet {
+    background: url('../images/TeaCatalog/bg_tablet.png') center top/100% 657px no-repeat,
+      url('../images/Catalog Coffee/bg2.png') 0 1140px/cover no-repeat,
+      v.$white;
+  }
+
+  @include m.phone {
+    background: url('../images/TeaCatalog/bg_tablet.png') center top/100% 321px no-repeat,
+      url('../images/Catalog Coffee/bg2.png') 0 600px/cover no-repeat,
+      v.$white;
+  }
+}
+
+.blog {
+  background: url('../images/Blog/bg1.png') 0 90%/100% no-repeat, v.$white;
+
+  @include m.tablet {
+    background: url('../images/Blog/bg1.png') 0 90%/100% 12% no-repeat, v.$white;
+  }
+
+  @include m.phone {
+    background: url('../images/Blog/bg1.png') 0 90%/100% 589px no-repeat, v.$white;
+  }
+}
+
+.contacts {
+  flex: 1 1 auto;
+  background: url('../images/Contacts/bg1.png')0 65%/100% no-repeat, v.$white;
+
+  @include m.tablet {
+    background: url('../images/Contacts/bg_tablet.png')0 55%/100% no-repeat, v.$white;
+  }
+
+  @include m.phone {
+    background: v.$white;
+  }
+}
+
+.basket {
+  background: url('../images/Basket/bg1.png')0 0/100% 779px no-repeat, v.$white;
+}
+
+.coffee,
+.tea,
+.wending,
+.healthyEating {
+  background: url('../images/Coffee/bg1.png')center top/100% 788px no-repeat, v.$white;
+
+  @include m.tablet {
+    background: url('../images/Coffee/bg1.png')center top/100% 1420px no-repeat, v.$white;
+  }
+
+  @include m.phone {
+    background: url('../images/Coffee/bg1.png')center top/100% 720px no-repeat, v.$white;
+  }
+}

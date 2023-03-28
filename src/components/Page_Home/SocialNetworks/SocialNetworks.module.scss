@@ -1,0 +1,141 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.socialNetworks {
+  min-height: f.rem(721);
+
+  @include m.tablet {
+    min-height: f.rem(900);
+  }
+
+  @include m.phone {
+    min-height: f.rem(550);
+  }
+}
+
+.container {
+  @include m.tablet {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+.header {
+  display: flex;
+  gap: f.rem(30);
+  align-items: center;
+  justify-content: flex-start;
+  margin-block: f.rem(20) f.rem(16);
+
+  @include m.tablet {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: f.rem(40);
+  }
+
+  @include m.phone {
+    gap: f.rem(20);
+  }
+}
+
+.title {
+  font-weight: 900;
+  font-size: f.rem(35);
+  line-height: f.ratio(35, 43.68);
+
+  @include m.tablet {
+    font-size: f.rem(40);
+    line-height: f.ratio(40, 49.92);
+    color: v.$darkGrey;
+  }
+
+  @include m.phone {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 24.96);
+  }
+
+}
+
+.headerImg {
+  width: f.rem(60);
+  height: f.rem(60);
+
+  img {
+    width: 100%;
+  }
+
+  @include m.tablet {
+    width: f.rem(81);
+    height: f.rem(81);
+  }
+
+  @include m.phone {
+    width: f.rem(40);
+    height: f.rem(40);
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 0.63fr 1.2fr;
+
+  @include m.tablet {
+    display: block;
+    min-height: f.rem(800);
+  }
+
+  @include m.phone {
+    min-height: f.rem(446);
+  }
+}
+
+.img {
+  background: url('../../../images/socialNetworks/iphones.png') no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  @include m.tablet {
+    display: none;
+  }
+}
+
+.slider {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: f.rem(15);
+  column-gap: f.rem(15);
+  overflow: hidden;
+
+  @include m.tablet {
+    display: none;
+  }
+}
+
+.sliderTablet {
+  @media screen and (min-width:769px) {
+    display: none;
+  }
+
+  position: relative;
+
+  span {
+    width: f.rem(390);
+    height: f.rem(800);
+    position: absolute;
+    background: url('../../../images/socialNetworks/iphone1.png') right top no-repeat;
+    background-size: contain;
+    background-position: center;
+    top: 0;
+    right: -50px;
+    z-index: -1;
+
+    @include m.phone {
+      width: f.rem(173);
+      height: f.rem(388);
+      background: url('../../../images/socialNetworks/iphone1.png') right top/ 100% 100% no-repeat;
+    }
+  }
+}

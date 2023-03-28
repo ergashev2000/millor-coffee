@@ -1,0 +1,69 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.container {
+  margin-top: f.rem(60);
+  display: grid;
+  grid-template-columns: minmax(auto, 779px) 280px;
+  column-gap: f.vw(121, 1349);
+
+  @include m.tablet {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(442px, auto) minmax(348px, auto);
+    row-gap: f.rem(80);
+    margin-top: f.rem(40);
+  }
+
+  @include m.phone {
+    grid-template-rows: auto minmax(170px, auto);
+    row-gap: f.rem(40);
+    margin-top: f.rem(30);
+  }
+}
+
+.textList {
+  display: flex;
+  flex-direction: column;
+  gap: f.rem(30);
+
+  @include m.tablet {
+    gap: f.rem(40);
+  }
+
+  @include m.phone {
+    gap: f.rem(25);
+  }
+}
+
+.itemText {
+  font-size: f.rem(17);
+  line-height: f.ratio(17, 23.03);
+  color: v.$darkGrey;
+
+  @include m.tablet {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 26);
+  }
+
+  @include m.phone {
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 18.2);
+  }
+}
+
+.aboutImage {
+  border-radius: f.rem(14);
+  background: url('../../../images/Coffee/icon_search.svg')left 12% bottom 13%/30px 30px no-repeat,
+    url('../../../images/Wending Products/Rectangle 61.png')center/cover no-repeat;
+
+  @include m.tablet {
+    background: url('../../../images/Coffee/icon_search.svg')right 10% bottom 18%/34px 34px no-repeat,
+      url('../../../images/Wending Products/Rectangle 61.png')center/cover no-repeat;
+  }
+
+  @include m.phone {
+    background: url('../../../images/Coffee/icon_search.svg')right 10% bottom 18%/24px 24px no-repeat,
+      url('../../../images/Wending Products/Rectangle 61.png')center/cover no-repeat;
+  }
+}

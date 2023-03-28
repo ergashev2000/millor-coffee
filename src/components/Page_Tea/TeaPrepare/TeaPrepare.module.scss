@@ -1,0 +1,66 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.teaPrepare {
+  border-top: 1px solid #B3B3B3;
+  border-bottom: 1px solid #B3B3B3;
+  margin-top: f.rem(20);
+
+  @include m.tablet {
+    margin-top: f.rem(70);
+  }
+
+  @include m.phone {
+    margin-top: f.rem(50);
+  }
+}
+
+.container {
+  padding-block: f.rem(40) f.rem(90);
+
+  @include m.tablet {
+    padding-block: f.rem(40) f.rem(70);
+  }
+
+  @include m.phone {
+    padding-block: f.rem(50) f.rem(50);
+  }
+}
+
+.title {
+  font-weight: 900;
+  font-size: f.rem(28);
+  line-height: f.ratio(28, 34.9);
+  margin-bottom: f.rem(35);
+
+  @include m.tablet {
+    font-size: f.rem(36);
+    line-height: f.ratio(36, 44.93);
+    margin-bottom: f.rem(40);
+  }
+
+  @include m.phone {
+    font-size: f.rem(18);
+    line-height: f.ratio(18, 22.46);
+    margin-bottom: f.rem(30);
+  }
+}
+
+.text {
+  max-width: f.rem(965);
+  font-size: f.rem(18);
+  line-height: f.ratio(18, 23.4);
+  color: v.$darkGrey;
+
+  @include m.tablet {
+    max-width: f.rem(700);
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 26);
+  }
+
+  @include m.phone {
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 18.2);
+  }
+}

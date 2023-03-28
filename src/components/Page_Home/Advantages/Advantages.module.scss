@@ -1,0 +1,171 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.advantages {
+  min-height: f.rem(611);
+
+  @include m.tablet {
+    padding-bottom: f.rem(187);
+  }
+
+  @include m.phone {
+    min-height: initial;
+    padding-bottom: initial;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: f.rem(60);
+  padding-right: f.rem(89);
+
+  @include m.netbook {
+    grid-template-columns: 0.5fr 1fr;
+    gap: f.rem(30);
+  }
+
+  @include m.tablet {
+    grid-template-columns: 1fr;
+    padding-right: f.rem(49);
+  }
+
+  @include m.phone {
+    padding-right: f.rem(30);
+  }
+
+}
+
+.img {
+  max-width: f.rem(534);
+  width: f.vw(534);
+  display: flex;
+  justify-content: center;
+
+  @include m.netbook {
+    max-width: f.rem(434);
+    width: f.vw(434);
+  }
+
+  @include m.tablet {
+    display: none;
+  }
+
+  img{
+    object-fit: contain;
+  }
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+
+  @include m.tablet {
+    justify-content: left;
+  }
+
+  h4 {
+    width: f.rem(414);
+    font-weight: 900;
+    font-size: f.rem(35);
+    line-height: f.ratio(35, 44);
+    color: v.$black;
+    margin: f.rem(59) f.rem(167) f.rem(57) f.rem(0);
+
+    @include m.tablet {
+      font-size: f.rem(40);
+      line-height: f.ratio(40, 49.92);
+      color: v.$darkGrey;
+      max-width: f.rem(461);
+      width: inherit;
+      margin: inherit;
+      margin-bottom: 61px;
+    }
+
+    @include m.phone {
+      max-width: f.rem(230);
+      font-size: f.rem(20);
+      line-height: f.ratio(20, 24.96);
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.advantage {
+  display: grid;
+  grid-template-columns: f.rem(60) auto;
+  column-gap: f.rem(30);
+
+  @include m.tablet {
+    grid-template-columns: f.rem(81) auto;
+    column-gap: f.rem(40);
+  }
+
+  @include m.phone {
+    grid-template-columns: f.rem(40) auto;
+    column-gap: f.rem(20);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: f.rem(40);
+
+    @include m.tablet {
+      margin-bottom: f.rem(60);
+    }
+
+    @include m.phone {
+      margin-bottom: f.rem(30);
+    }
+  }
+}
+
+.advantageImg {
+  width: f.rem(60);
+
+
+  @include m.tablet {
+    width: f.rem(81);
+
+    img {
+      width: 100%;
+    }
+  }
+
+  @include m.phone {
+    width: f.rem(40);
+  }
+}
+
+.advantageTitle {
+  font-size: f.rem(21);
+  line-height: f.ratio(21, 25);
+  font-weight: 700;
+  margin-bottom: f.rem(15);
+
+  @include m.tablet {
+    font-size: f.rem(25);
+    line-height: f.ratio(25, 30.22);
+  }
+
+  @include m.phone {
+    font-size: f.rem(16);
+    line-height: f.ratio(16, 19.34);
+  }
+}
+
+.advantageText {
+  font-size: f.rem(18);
+  line-height: 130%;
+
+  @include m.tablet {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 26);
+  }
+
+  @include m.phone {
+    font-size: f.rem(12);
+    line-height: f.ratio(12, 15.6);
+  }
+}

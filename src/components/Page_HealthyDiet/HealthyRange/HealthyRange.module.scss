@@ -1,0 +1,247 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.healthyRange {
+  padding-block: f.rem(30);
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+}
+
+.img {
+  width: f.rem(365);
+  height: f.rem(257);
+  position: absolute;
+  top: f.rem(255);
+  right: f.rem(10);
+  z-index: 1;
+  background: url('../../../images/HealthyDiet/image.png')center bottom/100% 100% no-repeat;
+
+  @media screen and (max-width:1237px) {
+    top: f.rem(0);
+  }
+
+  @include m.tablet {
+    width: 100%;
+    height: f.rem(384);
+    position: relative;
+    top: initial;
+    right: f.rem(-40);
+    background: url('../../../images/HealthyDiet/image.png')right bottom/contain no-repeat;
+    margin-bottom: f.rem(40);
+  }
+
+  @media screen and (max-width:560px) {
+    height: f.rem(300);
+  }
+
+  @include m.phone {
+    height: f.rem(190);
+    margin-bottom: f.rem(10);
+  }
+}
+
+.navigation {
+  display: flex;
+  gap: f.rem(11);
+  margin-bottom: f.rem(100);
+
+  @include m.netbook {
+    margin-bottom: f.rem(70);
+  }
+
+  @include m.tablet {
+    gap: f.rem(20);
+  }
+
+  @include m.phone {
+    gap: f.rem(12);
+  }
+}
+
+.navigationItem {
+  color: v.$white;
+  font-size: f.rem(12);
+  line-height: f.ratio(12, 14.12);
+  position: relative;
+
+  @include m.tablet {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 23.54);
+  }
+
+  @include m.phone {
+    font-size: f.rem(10);
+    line-height: f.ratio(10, 11.77);
+  }
+
+  a {
+    text-decoration: none;
+    color: v.$white;
+    font-size: f.rem(12);
+    line-height: f.pr(12, 14.12);
+
+    @include m.tablet {
+      font-size: f.rem(20);
+      line-height: f.ratio(20, 23.54);
+    }
+
+    @include m.phone {
+      font-size: f.rem(10);
+      line-height: f.ratio(10, 11.77);
+    }
+  }
+
+  &:not(:first-child)::before {
+    width: f.rem(3);
+    height: f.rem(3);
+    position: absolute;
+    display: block;
+    content: '';
+    border-radius: 50%;
+    background-color: v.$white;
+    top: 50%;
+    transform: translateY(-50%);
+    left: f.rem(-7);
+
+    @include m.tablet {
+      width: f.rem(4);
+      height: f.rem(4);
+      left: f.rem(-12);
+    }
+
+    @include m.phone {
+      width: f.rem(2);
+      height: f.rem(2);
+      left: f.rem(-7);
+    }
+  }
+
+}
+
+.title {
+  max-width: f.rem(597);
+  font-weight: 900;
+  color: v.$white;
+  font-size: f.rem(50);
+  line-height: f.ratio(50, 62.4);
+  margin-bottom: f.rem(95);
+  margin-right: f.rem(350);
+
+  @include m.tablet {
+    font-size: f.rem(50);
+    line-height: f.ratio(50, 62.4);
+    margin: initial;
+  }
+
+  @include m.phone {
+    font-size: f.rem(25);
+    line-height: f.ratio(25, 31.2);
+  }
+}
+
+.range {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 380px);
+  row-gap: f.rem(30);
+  column-gap: f.rem(20);
+  place-content: center;
+
+  @include m.tablet {
+    grid-template-columns: repeat(auto-fill, 220px);
+    row-gap: f.rem(20);
+  }
+
+  @include m.phone {
+    grid-template-columns: repeat(auto-fill, 107px);
+    row-gap: f.rem(10);
+    column-gap: f.rem(10);
+  }
+}
+
+.item {
+  width: f.rem(380);
+  height: f.rem(225);
+  padding: f.rem(16);
+  background: v.$white;
+  box-shadow: 0px 0px 21.2553px rgba(149, 149, 149, 0.25);
+  border-radius: 14.1702px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+  transition-property: box-shadow transform;
+  transition-duration: 0.5s;
+
+  @include m.tablet {
+    width: f.rem(220);
+    height: f.rem(220);
+    flex-direction: column-reverse;
+    box-shadow: 0px 0px 61.52px rgba(149, 149, 149, 0.25);
+    border-radius: f.rem(10);
+  }
+
+  @include m.phone {
+    width: f.rem(107);
+    height: f.rem(110);
+  }
+
+  &:hover {
+    box-shadow: inset 0px 0px 15px 1px rgba(134, 134, 134, 0.5);
+  }
+}
+
+.active {
+  background-color: v.$yellow;
+  box-shadow: inset 0px 0px 15px 1px rgba(134, 134, 134, 0.5);
+}
+
+.itemImg {
+  width: 100%;
+  height: 100%;
+  flex: 0 0 50%;
+  position: relative;
+
+  @include m.tablet {
+    flex: 0 0 70%;
+  }
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 80%;
+  }
+}
+
+.rangeText {
+  max-width: f.rem(235);
+  text-align: left;
+  font-weight: 700;
+  font-size: f.rem(18);
+  line-height: f.ratio(18, 21.76);
+
+  @include m.tablet {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 24.18);
+  }
+
+  @include m.phone {
+    font-size: f.rem(12);
+    line-height: f.ratio(12, 14.51);
+  }
+}
+
+.disable {
+  opacity: 0;
+
+  @media screen and (max-width:1237px) {
+    position: absolute;
+    display: none;
+  }
+}

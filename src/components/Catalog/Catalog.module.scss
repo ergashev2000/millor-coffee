@@ -1,0 +1,42 @@
+@use '../../style/variables.scss' as v;
+@use '../../style/mixins.scss' as m;
+@use '../../style/functions.scss' as f;
+
+
+.title {
+  font-weight: 900;
+  font-size: f.rem(35);
+  line-height: f.pr(35, 43.68);
+  margin-bottom: f.rem(83);
+
+  @include m.phone {
+    font-size: f.rem(20);
+    line-height: f.pr(20, 24.96);
+    margin-bottom: f.rem(30);
+  }
+}
+
+.items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: f.rem(20);
+  justify-content: center;
+
+  @include m.netbook {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include m.tablet {
+    display: none;
+  }
+}
+
+.itemsSlider {
+  display: none;
+  padding-bottom: f.rem(20);
+
+  @include m.tablet {
+    display: block;
+  }
+}

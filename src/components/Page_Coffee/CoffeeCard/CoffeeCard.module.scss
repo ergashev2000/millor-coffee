@@ -1,0 +1,751 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.coffeeCard {
+  .container {
+    background: v.$white;
+    border: 1px solid #E4E4E4;
+    box-shadow: 0px 0px 35.4254px rgba(163, 163, 163, 0.25);
+    border-radius: f.rem(14);
+    display: flex;
+    padding: f.rem(46) f.rem(94) f.rem(94);
+    gap: f.rem(97);
+
+    @include m.laptop {
+      padding: f.rem(46) f.rem(44) f.rem(94);
+      gap: f.rem(50);
+    }
+
+    @include m.tablet {
+      display: none;
+      position: absolute;
+    }
+  }
+
+  .image {
+    width: f.rem(294);
+    height: f.rem(542);
+    position: relative;
+
+    @include m.netbook {
+      width: f.rem(250);
+      height: f.rem(500);
+    }
+
+    &::after {
+      width: f.rem(145);
+      height: f.rem(145);
+      display: block;
+      position: absolute;
+      top: 45px;
+      right: -30px;
+      content: '';
+      border-radius: 50%;
+      background: url('../../../images/Coffee/vs0tzSHVcac.png')center/contain no-repeat;
+
+      @include m.netbook {
+        width: f.rem(125);
+        height: f.rem(125);
+      }
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .contant {
+    flex: 1 1 auto;
+  }
+
+  .coffeeBeans {
+    margin-bottom: f.rem(16);
+  }
+
+
+  .wrapperTitle {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .title {
+    font-weight: 900;
+    font-size: f.rem(28);
+    line-height: f.ratio(28, 34.94);
+    color: v.$darkGrey;
+    margin-bottom: f.rem(16);
+  }
+
+  .methodProcessing {
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 16.48);
+    color: v.$darkGrey;
+  }
+
+  .special {
+    font-weight: 700;
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 16.93);
+    color: v.$yellow;
+  }
+
+  .reviews {
+    display: flex;
+    gap: f.rem(15);
+    padding-block: f.rem(24);
+    align-items: center;
+  }
+
+  .reviewsStars {
+    width: f.rem(128);
+    height: f.rem(24);
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .reviewsText {
+    font-weight: 700;
+    font-size: f.rem(22);
+    line-height: f.ratio(22, 26.6);
+
+    span {
+      color: #5B5B5B;
+      font-weight: 500;
+      font-size: f.rem(12);
+      line-height: f.ratio(12, 14.12);
+    }
+  }
+
+  .aboutText {
+    max-width: f.rem(461);
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 18.2);
+    color: v.$darkGrey;
+    margin-bottom: f.rem(29);
+  }
+
+  .properties {
+    display: flex;
+    flex-direction: row;
+    gap: f.rem(64);
+    margin-bottom: f.rem(30);
+
+    @include m.netbook {
+      gap: f.rem(34);
+      flex-wrap: wrap;
+    }
+
+    .acid,
+    .bitterness,
+    .saturation {
+      width: f.rem(136);
+      height: f.rem(10);
+      display: flex;
+      flex-direction: column;
+      gap: f.rem(10);
+
+      @include m.netbook {
+        width: f.rem(116);
+      }
+
+      .acidText,
+      .bitternessText,
+      .saturationText {
+        font-weight: 700;
+        font-size: f.rem(14);
+        line-height: f.ratio(14, 16.93);
+        color: v.$darkGrey;
+      }
+    }
+  }
+
+  .formPackage {
+    display: flex;
+    gap: f.rem(40);
+    padding-block: f.rem(25);
+    position: relative;
+  }
+
+  .packageLabel {
+    display: flex;
+    align-items: center;
+    gap: f.rem(15);
+    font-size: f.rem(22);
+    line-height: f.ratio(22, 25.89);
+    cursor: pointer;
+  }
+
+  .packageInput {
+    width: 0;
+    height: 0;
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .customRadio {
+    width: f.rem(18);
+    height: f.rem(18);
+    display: inline-block;
+    background: #E4E4E4;
+    border-radius: 50%;
+    position: relative;
+    vertical-align: text-top;
+
+    @include m.tablet {
+      width: f.rem(16);
+      height: f.rem(16);
+    }
+
+    &::before {
+      content: '';
+      display: none;
+      width: f.rem(18);
+      height: f.rem(18);
+      background: v.$yellow;
+      border-radius: 50%;
+
+      @include m.tablet {
+        width: f.rem(16);
+        height: f.rem(16);
+      }
+    }
+  }
+
+  .packageInput:checked+.customRadio::before {
+    display: block;
+  }
+
+  .buttons {
+    display: flex;
+    gap: f.rem(40);
+    padding-top: f.rem(25);
+
+    @include m.netbook {
+      flex-wrap: wrap;
+    }
+
+    .itemAmount {
+      width: f.rem(184);
+      height: f.rem(49);
+      background: #f6f6f6;
+      border: 1px solid #d6d6d6;
+      border-radius: f.rem(5);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: center;
+      text-align: center;
+      color: v.$darkGrey;
+      font-weight: 600;
+      font-size: f.rem(18);
+      line-height: f.ratio(18, 21.47);
+
+      button {
+        height: 100%;
+        color: v.$black;
+        font-weight: 500;
+        font-size: f.rem(18);
+        line-height: f.ratio(18, 21.19);
+        background: #F6F6F6;
+        cursor: pointer;
+
+        &:hover {
+          background: #cccccc;
+        }
+
+        @include m.phone {
+          font-size: f.rem(18);
+          line-height: f.ratio(18, 21.47);
+        }
+      }
+
+      @include m.phone {
+        width: f.rem(160);
+        height: f.rem(47);
+      }
+    }
+
+    .buyBtn {
+      width: f.rem(184);
+      height: f.rem(49);
+
+      button {
+        width: 100%;
+        height: 100%;
+        background: v.$yellow;
+        border-radius: f.rem(4);
+        font-weight: 600;
+        font-size: f.rem(18);
+        line-height: f.ratio(18, 21.47);
+        color: v.$white;
+
+        &:hover {
+          background: v.$darkYellow;
+        }
+      }
+    }
+  }
+}
+
+.coffeeCardTablet {
+
+  @media screen and (min-width:769px) {
+    display: none;
+    position: absolute;
+  }
+
+  .container {
+    min-height: f.rem(1315);
+    background: v.$white;
+    border: 1px solid #E4E4E4;
+    box-shadow: 0px 0px 102.4px rgba(163, 163, 163, 0.25);
+    border-radius: f.rem(20);
+    padding: f.rem(50) f.rem(37) f.rem(70);
+    display: flex;
+    flex-direction: column;
+
+    @include m.phone {
+      min-height: f.rem(687);
+      box-shadow: 0px 0px 50px rgba(163, 163, 163, 0.25);
+      padding: f.rem(25) f.rem(20) f.rem(40);
+    }
+  }
+
+  .wrapperAbout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: f.vw(70, 768);
+
+    @include m.phone {
+      gap: f.rem(20);
+    }
+
+    @media screen and (max-width:350px) {
+      gap: f.rem(5);
+    }
+  }
+
+  .reviews {
+    margin-bottom: f.rem(170);
+
+    @include m.phone {
+      margin-bottom: f.rem(86);
+    }
+  }
+
+  .reviewsStars {
+    width: f.vw(290, 768);
+    height: f.rem(50);
+    margin-bottom: f.rem(40);
+
+    @include m.phone {
+      width: f.rem(142);
+      height: f.rem(25);
+      margin-bottom: f.rem(20);
+    }
+
+    @media screen and (max-width:350px) {
+      width: f.rem(100);
+      height: f.rem(20);
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .reviewsText {
+    font-weight: 700;
+    color: v.$darkGrey;
+    font-size: f.rem(32);
+    line-height: f.ratio(32, 41.6);
+
+    @include m.phone {
+      font-size: f.rem(16);
+      line-height: f.ratio(16, 20.8);
+    }
+
+    span {
+      font-weight: 500;
+      color: v.$darkGrey;
+      font-size: f.rem(24);
+      line-height: f.ratio(24, 28.25);
+
+      @include m.phone {
+        font-size: f.rem(12);
+        line-height: f.ratio(12, 14.12);
+      }
+    }
+  }
+
+  .special {
+    font-weight: 700;
+    font-size: f.rem(25);
+    line-height: f.ratio(25, 30.22);
+    color: v.$yellow;
+    display: flex;
+    flex-direction: column;
+    gap: f.rem(15);
+    margin-bottom: f.rem(115);
+
+    @include m.phone {
+      font-size: f.rem(14);
+      line-height: f.ratio(14, 16.93);
+      gap: f.rem(5);
+      margin-bottom: f.rem(50);
+    }
+  }
+
+  .coffeeBeans {
+    width: f.vw(280, 768);
+    height: f.rem(40);
+
+    @include m.phone {
+      width: f.rem(140);
+      height: f.rem(20);
+    }
+
+    @media screen and (max-width:350px) {
+      width: f.rem(100);
+      height: f.rem(20);
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .image {
+    height: f.vw(495, 768);
+    flex: 0 1 260px;
+    position: relative;
+
+    @include m.phone {
+      height: f.vw(259, 480);
+      min-height: f.rem(150);
+      flex: 0 1 136px;
+      min-width: f.rem(90);
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+
+
+    &::after {
+      width: f.vw(120, 768);
+      height: f.vw(120, 768);
+      display: block;
+      position: absolute;
+      top: f.rem(45);
+      right: f.rem(-10);
+      content: '';
+      border-radius: 50%;
+      background: url('../../../images/Coffee/vs0tzSHVcac.png')center/contain no-repeat;
+
+      @include m.phone {
+        width: f.vw(66, 480);
+        height: f.vw(66, 480);
+      }
+    }
+  }
+
+  .wrapperTitle {
+    padding-block: f.rem(20);
+  }
+
+  .title {
+    font-weight: 900;
+    font-size: f.rem(30);
+    line-height: f.ratio(30, 37.44);
+    color: v.$darkGrey;
+    margin-bottom: f.rem(18);
+
+    @include m.phone {
+      font-size: f.rem(18);
+      line-height: f.ratio(18, 22.46);
+      margin-bottom: f.rem(5);
+    }
+  }
+
+  .methodProcessing,
+  .aboutText {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 23.54);
+    color: v.$darkGrey;
+
+    @include m.phone {
+      font-size: f.rem(12);
+      line-height: f.ratio(12, 14.12);
+    }
+  }
+
+  .contantAbout {
+    margin-block: f.rem(45) f.rem(30);
+
+    @include m.phone {
+      margin-block: f.rem(20);
+    }
+  }
+
+  .aboutText {
+    max-width: f.rem(393);
+    height: f.rem(80);
+    line-height: f.ratio(20, 26);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    &.show {
+      height: initial;
+      overflow: initial;
+      text-overflow: initial;
+      display: block;
+    }
+
+    @include m.phone {
+      max-width: f.rem(240);
+      height: f.rem(48);
+      line-height: f.ratio(12, 15.16);
+    }
+  }
+
+
+  .aboutLink {
+    // max-width: f.rem(240);
+    color: v.$yellow;
+    font-size: f.rem(25);
+    line-height: f.ratio(25, 29.43);
+    position: relative;
+    cursor: pointer;
+
+    @media screen and (min-width:769px) {
+      display: none;
+      position: absolute;
+    }
+
+    @include m.phone {
+      max-width: f.rem(123);
+      font-size: f.rem(12);
+      line-height: f.ratio(12, 14.12);
+    }
+
+    &::after {
+      width: f.rem(20);
+      height: f.rem(10);
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: f.rem(-30);
+      background: url('../../../images/Coffee/icon2.png')center/100% 100% no-repeat;
+
+      @include m.phone {
+        width: f.rem(10);
+        height: f.rem(5);
+        right: f.rem(-15);
+      }
+    }
+
+    &.show::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+
+  .properties {
+    padding-block: f.rem(30);
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: f.rem(30);
+    column-gap: f.rem(118);
+
+    @include m.phone {
+      row-gap: f.rem(10);
+      column-gap: f.rem(53);
+      padding-block: f.rem(10);
+    }
+  }
+
+  .acid,
+  .bitterness,
+  .saturation {
+    width: f.rem(205);
+    height: f.rem(50);
+    display: flex;
+    flex-direction: column;
+    gap: f.rem(10);
+
+    @include m.phone {
+      width: f.rem(102);
+      height: f.rem(28);
+      gap: f.rem(5);
+    }
+  }
+
+
+  .acidText,
+  .bitternessText,
+  .saturationText {
+    font-weight: 700;
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 24.18);
+    color: v.$darkGrey;
+
+    @include m.phone {
+      font-size: f.rem(12);
+      line-height: f.ratio(12, 14.51);
+    }
+  }
+
+  .buttons {
+    padding-top: f.rem(25);
+  }
+
+  .selectAmount {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: f.rem(20);
+    padding-bottom: f.rem(20);
+
+    @include m.phone {
+      gap: f.rem(10);
+    }
+  }
+
+  .wrapperSelect {
+    height: f.rem(70);
+    position: relative;
+    display: inline-block;
+
+    @include m.phone {
+      height: f.rem(40);
+    }
+
+    &::after {
+      width: f.rem(20);
+      height: f.rem(10);
+      content: "";
+      position: absolute;
+      background: url('../../../images/Coffee/select.png')center/cover no-repeat;
+      right: f.rem(18);
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+
+      @include m.phone {
+        width: f.rem(10);
+        height: f.rem(5);
+      }
+    }
+  }
+
+  .select {
+    appearance: none; // убираем стандартную стрелку
+    height: f.rem(70);
+    background: #FFF7E1;
+    border: 1px solid #F9B300;
+    border-radius: 5px;
+    font-size: f.rem(25);
+    line-height: f.ratio(25, 29.82);
+    padding-left: f.rem(50);
+
+    @include m.phone {
+      height: f.rem(40);
+      font-size: f.rem(14);
+      line-height: f.ratio(14, 16.48);
+      padding-left: f.rem(20);
+    }
+
+    option {
+      width: 50% !important;
+      height: 50% !important;
+      font-size: f.rem(25) !important;
+      line-height: f.ratio(25, 29.82) !important;
+
+      @include m.phone {
+        font-size: f.rem(14);
+        line-height: f.ratio(14, 16.48);
+      }
+    }
+  }
+
+  .itemAmount {
+    height: f.rem(70);
+    background: #f6f6f6;
+    border: 1px solid #d6d6d6;
+    border-radius: f.rem(5);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    text-align: center;
+    font-weight: 600;
+    font-size: f.rem(25);
+    line-height: f.ratio(25, 29.82);
+    color: v.$darkGrey;
+
+    @include m.phone {
+      height: f.rem(40);
+      font-size: f.rem(16);
+      line-height: f.ratio(16, 19.09);
+    }
+
+    button {
+      height: 100%;
+      color: v.$black;
+      color: v.$black;
+      font-weight: 500;
+      font-size: f.rem(40);
+      line-height: f.ratio(40, 47.08);
+      background: #F6F6F6;
+      cursor: pointer;
+
+      @include m.phone {
+        font-size: f.rem(20);
+        line-height: f.ratio(20, 23.54);
+      }
+
+      &:hover {
+        background: #cccccc;
+      }
+    }
+  }
+
+  .buyBtn {
+    width: 100%;
+    height: f.rem(70);
+
+    @include m.phone {
+      height: f.rem(40);
+    }
+
+    button {
+      width: 100%;
+      height: 100%;
+      background: v.$yellow;
+      color: v.$white;
+      border-radius: f.rem(5);
+      font-weight: 600;
+      font-size: f.rem(25);
+      line-height: f.ratio(25, 29.82);
+
+      @include m.phone {
+        font-size: f.rem(14);
+        line-height: f.ratio(14, 16.7);
+      }
+
+      &:hover {
+        background: v.$darkYellow;
+      }
+    }
+  }
+}

@@ -1,0 +1,220 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.wendingProductsItem {
+  width: f.rem(280);
+  height: f.rem(456);
+  box-shadow: 0px 0px 20px rgba(201, 201, 201, 0.25);
+  background: v.$white;
+  border-radius: f.rem(14);
+  border: 0.708508px solid #E4E4E4;
+  transform-origin: center bottom;
+  transition-property: transform;
+  transition-duration: 0.5s;
+
+  @include m.tablet {
+    width: f.rem(340);
+    height: f.rem(546);
+    border: 1px solid #E4E4E4;
+    border-radius: f.rem(10);
+  }
+
+  @include m.phone {
+    height: f.rem(554);
+    border-radius: f.rem(17);
+  }
+
+  @media screen and (max-width:360px) {
+    width: f.rem(280);
+  }
+
+  &:hover {
+    transform: scale(1.03);
+    border: 0.708508px solid #aaaaaa;
+    box-shadow: 0px 0px 20px rgba(167, 167, 167, 0.5);
+  }
+}
+
+.container {
+  height: 100%;
+  padding: f.rem(20) f.rem(25) f.rem(30);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  @include m.tablet {
+    padding: f.rem(30) f.rem(33) f.rem(42);
+  }
+
+  @include m.phone {
+    padding: f.rem(24) f.rem(30) f.rem(47);
+  }
+
+  a {
+    text-decoration: none;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+  }
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @include m.tablet {
+    flex-direction: row;
+  }
+}
+
+.rating {
+  @include m.tablet {
+    width: f.rem(113);
+  }
+}
+
+.reviews {
+  font-weight: 700;
+  color: v.$darkGrey;
+  font-size: f.rem(14);
+  line-height: f.ratio(14, 17);
+  margin-top: f.rem(12);
+  margin-bottom: f.rem(32);
+
+  @include m.tablet {
+    font-size: f.rem(16);
+    line-height: f.ratio(16, 19.34);
+    margin-block: f.rem(10);
+  }
+
+  span {
+    color: #5B5B5B;
+    font-size: f.rem(10);
+    line-height: f.ratio(10, 12);
+
+    @include m.tablet {
+      font-size: f.rem(12);
+      line-height: f.ratio(12, 14.12);
+    }
+  }
+}
+
+.select {
+  width: f.rem(93);
+  height: f.rem(23);
+  background-color: #FFF7E1;
+  border: 0.708508px solid v.$yellow;
+  border-radius: f.rem(4);
+  font-size: f.rem(12);
+  line-height: f.ratio(12, 14);
+  text-align: center;
+
+  @include m.tablet {
+    width: f.rem(112);
+    height: f.rem(28);
+    border: 1px solid v.$yellow;
+    border-radius: 4px;
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 16.48);
+  }
+}
+
+.img {
+  width: f.rem(230);
+  height: f.rem(177);
+  border-radius: f.rem(14);
+  overflow: hidden;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  @include m.tablet {
+    width: f.rem(274);
+    height: f.rem(211);
+    border-radius: f.rem(10);
+  }
+
+  @include m.phone {
+    width: initial;
+    max-width: f.rem(279);
+    height: f.rem(215);
+    border-radius: f.rem(17);
+  }
+
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &.sale::before {
+    position: absolute;
+    content: url('../../../images/Discount Goods/procent.png');
+    right: 12px;
+    top: 35px;
+  }
+}
+
+.title {
+  font-size: f.rem(18);
+  font-weight: 900;
+  line-height: f.ratio(18, 22.46);
+  color: v.$darkGrey;
+  margin-block: f.rem(40) f.rem(20);
+
+  @include m.tablet {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 24.96);
+    margin-block: f.rem(45) f.rem(20);
+  }
+}
+
+.text {
+  width: f.rem(183);
+  font-size: f.rem(12);
+  font-weight: 500;
+  line-height: f.ratio(12, 14.12);
+  color: v.$darkGrey;
+  margin-bottom: f.rem(25);
+
+  @include m.tablet {
+    font-size: f.rem(16);
+    line-height: f.ratio(16, 18.83);
+    margin-bottom: f.rem(23);
+  }
+
+  @include m.phone {
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 16.48);
+    margin-bottom: f.rem(30);
+  }
+}
+
+.btn {
+  width: 100%;
+  height: f.rem(34);
+  background-color: v.$yellow;
+  border-radius: f.rem(4);
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  color: v.$white;
+  font-size: f.rem(12);
+  line-height: f.ratio(12, 14.51);
+  text-align: center;
+  cursor: pointer;
+
+  @include m.tablet {
+    height: f.rem(40);
+    font-size: f.rem(16);
+    line-height: f.ratio(16, 19.34);
+    border-radius: f.rem(5);
+  }
+
+
+  &:hover {
+    background-color: v.$darkYellow;
+  }
+}

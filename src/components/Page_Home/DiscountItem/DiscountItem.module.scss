@@ -1,0 +1,454 @@
+@use '../../../style/variables' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.discountItem {
+  width: f.rem(280);
+  height: f.rem(461);
+  box-shadow: 0px 0px 20px rgba(201, 201, 201, 0.25);
+  background: v.$white;
+  border-radius: f.rem(14);
+  border: 0.708508px solid #E4E4E4;
+  transform-origin: center bottom;
+  transition-property: transform;
+  transition-duration: 0.5s;
+
+  @include m.phone {
+    width: f.rem(250);
+    height: f.rem(407);
+  }
+
+
+  &:hover {
+    transform: scale(1.03);
+    border: 0.708508px solid #aaaaaa;
+    box-shadow: 0px 0px 20px rgba(167, 167, 167, 0.5);
+  }
+
+}
+
+.container {
+  min-height: 100%;
+  padding: 0 f.rem(25);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.formNoSale {
+  min-height: f.rem(63);
+  display: flex;
+  justify-content: space-between;
+}
+
+.select {
+  width: 93px;
+  height: 23px;
+  background-color: #FFF7E1;
+  border: 0.708508px solid v.$yellow;
+  border-radius: f.rem(4);
+  font-size: f.rem(12);
+  line-height: f.ratio(12, 14);
+  margin-top: f.rem(14);
+  text-align: center;
+}
+
+.discount {
+  color: v.$yellow;
+  font-size: f.rem(12);
+  line-height: f.pr(12, 14.51);
+  margin-bottom: f.rem(14);
+}
+
+.noDiscount {
+  color: v.$yellow;
+  font-size: f.rem(12);
+  line-height: f.ratio(12, 14.51);
+  margin-top: f.rem(14);
+
+  p:not(:last-child) {
+    margin-bottom: f.rem(6);
+  }
+
+  p:last-child {
+    margin-bottom: f.rem(14);
+  }
+}
+
+.wrapperDiscountImg {
+  width: f.rem(65);
+  height: f.rem(65);
+  position: absolute;
+  top: f.rem(-34);
+  left: f.rem(15);
+  display: flex;
+}
+
+.discountImg {
+  max-width: 150%;
+  max-height: 150%;
+}
+
+.link {
+  text-decoration: none;
+  flex: 1 1 auto;
+}
+
+.wrapper {
+  height: f.rem(215);
+  margin-bottom: f.rem(25);
+  display: flex;
+  gap: f.rem(18);
+  align-items: center;
+
+  @include m.phone {
+    height: f.rem(193);
+    margin-bottom: f.rem(20);
+  }
+}
+
+.wrapperNoCoffee {
+  height: f.rem(215);
+  margin-bottom: f.rem(25);
+  position: relative;
+
+  img {
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.img {
+  width: f.rem(120);
+  height: f.rem(218);
+
+  @include m.tablet {
+    width: f.rem(144);
+      height: f.rem(260);
+  }
+
+  @include m.phone {
+    max-width: f.rem(107);
+    height: f.rem(193);
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.stars {
+  margin-top: f.rem(10);
+}
+
+.reviews {
+  font-weight: 700;
+  color: v.$darkGrey;
+  font-size: f.rem(14);
+  line-height: f.ratio(14, 17);
+  margin-top: f.rem(6);
+  margin-bottom: f.rem(20);
+
+  span {
+    color: #5B5B5B;
+    font-size: f.rem(10);
+    line-height: f.ratio(10, 12);
+  }
+}
+
+.coffeeBeans {
+  margin-bottom: f.rem(25);
+}
+
+.description {
+  font-size: f.rem(12);
+  font-weight: 500;
+  line-height: f.pr(12, 14.12);
+  color: v.$darkGrey;
+  margin-bottom: f.rem(6);
+}
+
+.descriptionImg:not(:last-child) {
+  margin-bottom: f.rem(12);
+}
+
+.title {
+  font-size: f.rem(18);
+  font-weight: 900;
+  line-height: f.ratio(18, 22.46);
+  color: v.$darkGrey;
+  margin-bottom: f.rem(8);
+
+  @include m.phone {
+    font-size: f.rem(15.63);
+    line-height: f.ratio(15.63, 19.5);
+  }
+}
+
+.text {
+  width: f.rem(183);
+  font-size: f.rem(12);
+  font-weight: 500;
+  line-height: f.ratio(12, 14.12);
+  color: v.$darkGrey;
+  margin-bottom: f.rem(20);
+
+  @include m.phone {
+    width: f.rem(156);
+    font-size: f.rem(10);
+    line-height: f.ratio(10, 11.77);
+  }
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: f.rem(37);
+}
+
+.priceText {
+  position: relative;
+
+  p {
+    font-weight: 900;
+    font-size: f.rem(24);
+    line-height: f.ratio(24, 30);
+    text-align: center;
+    color: v.$darkGrey;
+
+    @include m.phone {
+      font-size: f.rem(20);
+      line-height: f.ratio(20, 24);
+    }
+  }
+
+  &.sale::after {
+    position: absolute;
+    top: -19px;
+    left: 0px;
+    content: '350 ₽';
+    text-align: center;
+    text-decoration-line: line-through;
+    line-height: f.ratio(18, 21);
+    color: #C6C6C6;
+  }
+}
+
+.btn {
+  width: f.rem(125);
+  height: f.rem(33);
+  background-color: v.$yellow;
+  border-radius: 4px;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  color: v.$white;
+  font-family: inherit;
+  font-size: f.rem(12);
+  line-height: f.ratio(12, 14.51);
+  text-align: center;
+  cursor: pointer;
+
+
+  &:hover {
+    background-color: v.$darkYellow;
+  }
+}
+
+.btn.activeBasket {
+  cursor: progress;
+}
+
+.coffeeCatalogDProducts {
+  .discountItem {
+    @include m.tablet {
+      width: f.rem(340);
+      height: f.rem(552);
+    }
+  }
+
+  .container {
+    @include m.tablet {
+      height: 100%;
+      box-shadow: 0px 0px 17.0069px rgba(146, 146, 146, 0.25);
+      border-radius: f.rem(10);
+      padding: f.rem(21) f.rem(33) f.rem(40) f.rem(35);
+    }
+
+    @include m.phone {
+      padding: f.rem(17) f.rem(32) f.rem(43);
+    }
+
+  }
+
+  .formNoSale {
+    column-gap: f.rem(64);
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .form {
+    margin-left: auto;
+  }
+
+  .noDiscount {
+    @include m.tablet {
+      min-height: 100%;
+      margin: initial;
+      display: grid;
+      place-items: center;
+    }
+
+    p {
+      @include m.tablet {
+        font-size: f.rem(14);
+        line-height: f.ratio(14, 16.93);
+      }
+    }
+  }
+
+  .discount {
+    p {
+      @include m.tablet {
+        font-size: f.rem(14);
+        line-height: f.ratio(14, 16.93);
+      }
+    }
+  }
+
+  .select {
+    @include m.tablet {
+      width: 110px;
+      height: 28px;
+      margin: initial;
+      font-size: f.rem(16);
+      line-height: f.ratio(16, 18.83);
+      border: 1px solid v.$yellow;
+      border-radius: f.rem(5);
+    }
+
+    @include m.phone {
+      line-height: f.ratio(16, 16.48);
+    }
+
+  }
+
+  .link {
+
+    @include m.tablet {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .wrapper {
+    .img {
+      @include m.tablet {
+        min-height: 75%;
+        display: grid;
+        place-content: center;
+        position: relative;
+        flex: 1 1 50%;
+      }
+
+      img {
+
+        @include m.tablet {
+          // position: absolute;
+          top: 50%;
+          left: 50%;
+          // transform: translate(-50%, -50%);
+          max-width: inherit;
+          height: 100%;
+        }
+      }
+    }
+
+
+    @include m.tablet {
+      height: f.rem(260);
+      width: 100%;
+      margin-bottom: f.rem(30);
+    }
+  }
+
+  .wrapperText {
+    @include m.tablet {
+      max-height: 100%;
+    }
+
+    .title {
+      @include m.tablet {
+        font-size: f.rem(22);
+        line-height: f.ratio(22, 27.46);
+        color: v.$darkGrey;
+        margin-bottom: f.rem(10);
+      }
+
+      @include m.phone {
+        font-size: f.rem(20);
+        line-height: f.ratio(20, 24.96);
+      }
+    }
+
+    .text {
+      @include m.tablet {
+        width: f.rem(210);
+        font-size: f.rem(14);
+        line-height: f.ratio(14, 16.48);
+        color: v.$darkGrey;
+        margin-bottom: f.rem(26);
+      }
+    }
+  }
+
+  .price {
+
+    @include m.tablet {
+      margin: initial;
+    }
+
+    .priceText {
+      p {
+
+        @include m.tablet {
+          font-size: f.rem(26);
+          line-height: f.ratio(26, 32.45);
+          color: v.$darkGrey;
+        }
+
+        @include m.phone {
+          font-size: f.rem(25);
+          line-height: f.ratio(25, 31.2);
+        }
+      }
+    }
+  }
+
+  .btn {
+    @include m.tablet {
+      width: f.rem(149);
+      height: f.rem(40);
+      font-size: f.rem(16);
+      line-height: f.ratio(16, 19.34);
+      font-weight: 700;
+    }
+
+    @include m.phone {
+      width: f.rem(151);
+      font-size: f.rem(15.16);
+      line-height: f.ratio(15.16, 18.83);
+    }
+  }
+}

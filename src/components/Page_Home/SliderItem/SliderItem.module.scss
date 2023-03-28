@@ -1,0 +1,239 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+
+
+.item {
+  position: relative;
+  // border: 1px solid ;
+}
+
+.about {
+  max-width: 100%;
+}
+
+.title {
+  margin-top: f.rem(65);
+  font-weight: 900;
+  font-size: f.rem(56);
+  line-height: f.ratio(56, 69.89);
+  max-width: f.rem(662);
+  margin-right: f.rem(500);
+
+  @media screen and (max-width:910px) {
+    margin-right: f.rem(0);
+  }
+
+  @include m.tablet {
+    max-width: f.rem(472);
+    font-size: f.rem(50);
+    margin-top: f.rem(130);
+  }
+
+  @media screen and (max-width:650px) {
+    font-size: f.rem(40);
+  }
+
+  @include m.phone {
+    margin-top: f.rem(27);
+    font-size: f.rem(30);
+    line-height: f.ratio(30, 37.4);
+  }
+
+  @media screen and (max-width:330px) {
+    font-size: f.rem(24);
+  }
+
+
+  &:not(:last-child) {
+    margin-bottom: f.rem(41);
+
+    @include m.tablet {
+      margin-bottom: f.rem(80);
+    }
+
+    @include m.phone {
+      margin-bottom: f.rem(30);
+    }
+  }
+}
+
+.text {
+  max-width: f.rem(466);
+  width: f.vw(466);
+  line-height: 130%;
+
+  @include m.netbook {
+    max-width: f.rem(280);
+    width: none;
+  }
+
+  @include m.tablet {
+    max-width: none;
+    width: f.rem(314);
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 26);
+  }
+
+  @include m.phone {
+    width: inherit;
+    max-width: f.rem(220);
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 18.2);
+  }
+
+  &:nth-child(3) {
+    @include m.tablet {
+      width: f.rem(280);
+    }
+
+    @include m.phone {
+      width: inherit;
+      max-width: f.rem(150);
+    }
+  }
+
+  span {
+    font-weight: bold;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: f.rem(45);
+
+    @include m.tablet {
+      margin-bottom: f.rem(40);
+    }
+
+    @include m.phone {
+      margin-bottom: f.rem(30);
+    }
+  }
+}
+
+.btn {
+  width: f.rem(283);
+  z-index: 10;
+  height: f.rem(56);
+  background-color: v.$yellow;
+  border-radius: f.rem(5);
+  margin-top: f.rem(58);
+  margin-bottom: f.rem(167);
+  transition-property: background-color;
+  transition-duration: 0.5s;
+
+  @include m.tablet {
+    margin: f.rem(376) f.rem(20) f.rem(30);
+    // margin-inline: auto;
+    max-width: f.rem(700);
+    width: 90%;
+    height: f.rem(70);
+  }
+
+  @include m.phone {
+    // max-width: f.rem(340);
+    height: f.rem(50);
+    max-width: calc(100% - 34px);
+    width: 100%;
+    margin: f.rem(220) auto f.rem(20);
+  }
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-family: 'Gilroy';
+    color: v.$white;
+    font-size: f.rem(21);
+    line-height: f.pr(21, 25);
+    font-weight: 700;
+    text-decoration: none;
+
+    @include m.tablet {
+      font-size: f.rem(25);
+      line-height: f.ratio(25, 30.22);
+    }
+
+    @include m.phone {
+      font-size: f.rem(18);
+      line-height: f.ratio(18, 21.76);
+    }
+  }
+
+  &:hover {
+    background-color: v.$darkYellow;
+  }
+}
+
+.img {
+  position: absolute;
+  top: -78px;
+  right: 60px;
+  max-width: f.rem(637);
+  max-height: f.rem(549);
+  transform: translateX(10px);
+
+
+  @media screen and (max-width:1100px) {
+    right: 0px;
+  }
+
+  @include m.netbook {
+    top: 0px;
+    right: -20px;
+    max-width: f.rem(537);
+  }
+
+  @media screen and (max-width:910px) {
+    right: -25px;
+    top: 65px;
+  }
+
+  @include m.tablet {
+    img {
+      max-width: none;
+    }
+
+    max-width: f.rem(543);
+    max-height: f.rem(615);
+    right: f.rem(12);
+    top: f.rem(155);
+    overflow: hidden;
+  }
+
+  @media screen and (max-width:705px) {
+    max-width: f.rem(480);
+  }
+
+  @media screen and (max-width:650px) {
+    max-width: f.rem(400);
+    top: f.rem(200);
+  }
+
+  @include m.phone {
+    img {
+      width: f.rem(460);
+    }
+
+    max-width: f.rem(315);
+    max-height: f.rem(377);
+    right: f.rem(10);
+    top: f.rem(65);
+  }
+
+  @media screen and (max-width:400px) {
+    top: f.rem(125);
+    max-width: f.rem(250);
+
+    img {
+      width: f.rem(360);
+    }
+  }
+
+  @media screen and (max-width:340px) {
+    top: f.rem(170);
+  }
+
+}

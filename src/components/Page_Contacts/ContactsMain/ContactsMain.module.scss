@@ -1,0 +1,250 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.contactsMain {
+  padding-block: f.rem(35) f.rem(150);
+
+  @include m.tablet {
+    padding-block: f.rem(55) f.rem(50);
+  }
+
+  @include m.phone {
+    padding-block: f.rem(40) f.rem(20);
+  }
+}
+
+.container {
+  min-height: f.rem(372);
+  display: grid;
+  grid-template-columns: 0.59fr 1fr;
+  gap: f.rem(40);
+
+  @include m.tablet {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 372px;
+    gap: f.rem(60);
+  }
+
+  @include m.phone {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 317px;
+    gap: f.rem(40);
+    overflow: hidden;
+  }
+}
+
+.aboutContacts {
+  display: flex;
+  flex-direction: column;
+  gap: f.rem(50);
+
+  @include m.tablet {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 'contacts legalAddress ' ' warehouse legalAddress';
+    gap: f.rem(20);
+  }
+
+  @include m.phone {
+    display: flex;
+    gap: f.rem(30);
+    padding-right: f.rem(37);
+  }
+
+  .contacts {
+    display: flex;
+    flex-direction: column;
+    gap: f.rem(8);
+
+    @include m.tablet {
+      grid-area: contacts;
+    }
+
+    @include m.phone {
+      gap: f.rem(20);
+    }
+  }
+
+  .titleContacts {
+    @include m.phone {
+      order: 1;
+    }
+  }
+
+  .contactsPhone {
+    @include m.phone {
+      order: 3;
+    }
+  }
+
+  .contactsMail {
+    @include m.phone {
+      order: 2;
+    }
+  }
+
+  .legalAddress {
+    @include m.tablet {
+      grid-area: legalAddress;
+    }
+  }
+
+  .warehouse {
+    @include m.tablet {
+      grid-area: warehouse;
+    }
+  }
+
+  .contactsPhone,
+  .contactsMail {
+    @include m.phone {
+      position: relative;
+      transform: translateX(32px);
+
+      &::before {
+        width: f.rem(22);
+        height: f.rem(22);
+        position: absolute;
+        content: '';
+        background: url('../../../images/Contacts/phone.png');
+        top: 50%;
+        transform: translateY(-50%);
+        left: f.rem(-32);
+      }
+    }
+  }
+
+  .contactsMail {
+    @include m.tablet {
+      display: none;
+    }
+
+    @include m.phone {
+      display: block;
+      position: relative;
+
+      &::before {
+        background: url('../../../images/Contacts/mail.png');
+      }
+    }
+  }
+}
+
+.aboutShops {
+  display: flex;
+  flex-direction: column;
+  gap: f.rem(25);
+
+  @include m.tablet {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: f.rem(20);
+  }
+
+  @include m.phone {
+    flex-direction: column;
+    gap: f.rem(30);
+  }
+
+  .shopsCity {
+    @include m.tablet {
+      max-width: f.rem(224);
+    }
+
+    @include m.phone {
+      max-width: initial;
+    }
+  }
+}
+
+
+.titleContacts,
+.titleLegalAddress,
+.titleWarehouse,
+.shopsCity {
+  font-weight: 900;
+  font-size: f.rem(22);
+  line-height: f.pr(22, 27.46);
+
+  @include m.tablet {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 24.96);
+  }
+
+  @include m.phone {
+    font-size: f.rem(18);
+    line-height: f.ratio(18, 22.46);
+  }
+}
+
+.contactsPhone,
+.contactsMail,
+.legalAddressText,
+.warehouseText,
+.shopsAddress {
+  text-decoration: none;
+  color: v.$darkGrey;
+  font-size: f.rem(14);
+  line-height: f.pr(14, 18.2);
+
+  @include m.tablet {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 26);
+  }
+
+  @include m.phone {
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 18.2);
+  }
+}
+
+.titleLegalAddress,
+.titleWarehouse,
+.shopsCity {
+  margin-bottom: f.rem(20);
+
+  @include m.tablet {
+    margin-bottom: f.rem(10);
+  }
+
+  @include m.phone {
+    margin-bottom: f.rem(20);
+  }
+}
+
+.img {
+  border: 1px solid v.$black;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include m.tablet {
+    border: 1px solid #A4A4A4;
+    border-radius: f.rem(5);
+  }
+
+  @include m.phone {
+    width: 110%;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: initial;
+  }
+}
+
+.shopsItems {
+  display: flex;
+  flex-direction: column;
+
+  @include m.tablet {
+    padding-right: f.rem(90);
+  }
+
+  @media screen and (max-width:660px) {
+    padding-right: initial;
+  }
+}

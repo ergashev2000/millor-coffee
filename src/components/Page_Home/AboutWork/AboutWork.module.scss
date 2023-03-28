@@ -1,0 +1,119 @@
+@use '../../../style/variables.scss' as v;
+@use '../../../style/mixins.scss' as m;
+@use '../../../style/functions.scss' as f;
+
+.aboutWork {
+  min-height: f.rem(746);
+
+  @include m.tablet {
+    padding-bottom: f.rem(40);
+  }
+
+  @include m.phone {
+    min-height: inherit;
+    padding-bottom: f.rem(35);
+  }
+}
+
+.container {
+  margin-top: f.rem(109);
+  color: v.$white;
+  max-width: f.rem(882);
+}
+
+.title {
+  font-weight: 900;
+  font-size: f.rem(35);
+  line-height: f.ratio(35, 44);
+  margin-bottom: f.rem(69);
+
+  @include m.tablet {
+    font-size: f.rem(40);
+    line-height: f.ratio(40, 49.92);
+  }
+
+  @include m.phone {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 24.96);
+    margin-bottom: f.rem(30);
+  }
+}
+
+.text {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: f.ratio(18, 23.4);
+  color: v.$white;
+
+  @include m.tablet {
+    font-size: f.rem(20);
+    line-height: f.ratio(20, 26);
+  }
+
+  @include m.phone {
+    font-size: f.rem(14);
+    line-height: f.ratio(14, 18.2);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: f.rem(32);
+
+    @include m.tablet {
+      margin-bottom: f.rem(40);
+    }
+
+    @include m.phone {
+      margin-bottom: f.rem(28);
+    }
+  }
+}
+
+.btn {
+  width: f.rem(283);
+  height: f.rem(56);
+  background-color: v.$yellow;
+  margin-top: f.rem(38);
+  border-radius: f.rem(5);
+
+  @include m.tablet {
+    width: 100%;
+    max-width: f.rem(700);
+    height: f.rem(70);
+    margin-top: f.rem(93);
+  }
+
+  @include m.phone {
+    width: 100%;
+    max-width: f.rem(340);
+    height: f.rem(50);
+    margin-top: f.rem(40);
+  }
+
+  &:hover {
+    background-color: v.$darkYellow
+  }
+}
+
+.link {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: v.$white;
+  text-decoration: none;
+  font-family: 'Gilroy', sans-seri;
+  font-weight: 700;
+  font-size: f.rem(21);
+  line-height: f.ratio(21, 25.39);
+
+  @include m.tablet {
+    font-size: f.rem(25);
+    line-height: f.ratio(25, 30.22);
+  }
+
+  @include m.phone {
+    font-size: f.rem(18);
+    line-height: f.ratio(18, 21.76);
+  }
+}
